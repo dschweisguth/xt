@@ -72,7 +72,7 @@ public class SeatControllerImpl implements SeatController {
     public void setPlayer(String pPlayer, Game pGame) {
         Assert.assertNotNull(pPlayer);
 
-        mPlayerController.setPlayer(pPlayer);
+        mPlayerController.setPlayer(pPlayer, pGame);
         if (mClient.playerIs(pPlayer)) {
             if (! (mRackController instanceof ClientPlayerRackController)) {
                 setRackController(

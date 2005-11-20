@@ -30,9 +30,12 @@ public class PlayerController {
         return mView.getModel().getPlayer();
     }
 
-    public void setPlayer(String pPlayer) {
+    public void setPlayer(String pPlayer, Game pGame) {
         mClient.removeListener(mListener);
-        mView.setModel(new PlayerModel(pPlayer));
+        PlayerModel model = new PlayerModel(pPlayer);
+        model.setIsTurn(pGame.hasCurrentPlayer() &&
+            pGame.getCurrentPlayer().equals(model.getPlayer()));
+        mView.setModel(model);
         addListener();
     }
 
