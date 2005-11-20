@@ -1,0 +1,2 @@
+how to timeout an RMI call ?
+https://lists.xcf.berkeley.edu/lists/advanced-java/2000-September/012404.html

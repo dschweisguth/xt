@@ -1,0 +1,182 @@
+<project default="build">
+    <property name="lib" value="/Users/dave/lib"/>
+    <property name="jcoverage" value="${lib}/jcoverage-1.0.5"/>
+
+    <property name="build" value="../build"/>
+    <property name="class" location="${build}/class"/>
+    <property name="rmiclass" location="${build}/rmiclass"/>
+    <property name="rmiclass-perf" location="${build}/rmiclass-perf"/>
+    <property name="jar" value="${build}/jar"/>
+    <property name="dist" value="${build}/dist"/>
+    <property name="zip" value="${build}/zip"/>
+    <property name="coverage-class" location="${build}/coverage-class"/>
+    <property name="coverage-report" location="${build}/coverage-report"/>
+
+    <path id="classpath">
+	<pathelement path="${lib}/junit3.8.1/junit.jar"/>
+	<pathelement path="${lib}/jfcunit/jfcunit.jar"/>
+    </path>
+
+    <path id="classpath-test">
+	<path refid="classpath"/>
+	<pathelement path="${lib}/jakarta-regexp-1.3/jakarta-regexp-1.3.jar"/>
+	<pathelement path="${rmiclass}"/>
+    </path>
+
+    <target name="build" depends="clean">
+	<!-- Compile -->
+	<mkdir dir="${class}"/>
+	<javac srcdir="src" destdir="${class}"
+	    classpathref="classpath" debug="yes"/>
+
+	<!-- RMI compile -->
+	<rmic base="${class}">
+	    <compilerarg value="-v1.2"/>
+	    <include name="org/schweisguth/xt/client/server/ClientImpl$$ForwardingListener.class"/>
+	    <include name="org/schweisguth/xt/server/ServerImpl.class"/>
+	</rmic>
+	<move todir="${rmiclass}">
+	    <fileset dir="${class}">
+		<include name="**/*Stub*"/>
+	    </fileset>
+	</move>
+	<rmic base="${class}">
+	    <compilerarg value="-v1.2"/>
+	    <include name="org/schweisguth/xttest/perf/server/ServerImpl.class"/>
+	</rmic>
+	<move todir="${rmiclass-perf}">
+	    <fileset dir="${class}">
+		<include name="**/*Stub*"/>
+	    </fileset>
+	</move>
+
+	<!-- Class jars -->
+	<mkdir dir="${jar}"/>
+
+	<!-- Client -->
+	<jar manifest="resource/xt-client/MANIFEST.MF"
+	    destfile="${jar}/xt-client.jar">
+	    <fileset dir="${class}">
+		<include name="org/schweisguth/xt/common/**"/>
+		<include name="org/schweisguth/xt/client/**"/>
+	    </fileset>
+	    <fileset dir="${rmiclass}"/>
+	</jar>
+
+	<!-- Server -->
+	<jar manifest="resource/xt-server/MANIFEST.MF"
+	    destfile="${jar}/xt-server.jar">
+	    <fileset dir="${class}">
+		<include name="org/schweisguth/xt/common/**"/>
+		<include name="org/schweisguth/xt/server/**"/>
+	    </fileset>
+	    <fileset dir="${rmiclass}"/>
+	</jar>
+
+	<!-- Perf client -->
+	<jar manifest="resource/xt-perf-client/MANIFEST.MF"
+	    destfile="${jar}/xt-perf-client.jar">
+	    <fileset dir="${class}">
+		<include name="org/schweisguth/xttest/perf/common/**"/>
+		<include name="org/schweisguth/xttest/perf/client/**"/>
+	    </fileset>
+	    <fileset dir="${rmiclass-perf}"/>
+	</jar>
+
+	<!-- Perf server -->
+	<jar manifest="resource/xt-perf-server/MANIFEST.MF"
+	    destfile="${jar}/xt-perf-server.jar">
+	    <fileset dir="${class}">
+		<include name="org/schweisguth/xttest/perf/common/**"/>
+		<include name="org/schweisguth/xttest/perf/server/**"/>
+	    </fileset>
+	    <fileset dir="${rmiclass-perf}"/>
+	</jar>
+
+	<!-- Distributions -->
+<!--
+	<copy todir="${build}">
+	    <fileset dir="." includes="dist/**"/>
+	</copy>
+-->
+	<exec executable="cp">
+	    <arg line="-pr dist ${build}"/>
+	</exec>
+	<copy file="${jar}/xt-client.jar"
+	    todir="${dist}/client/generic/CrossTease"/>
+	<copy file="${jar}/xt-client.jar"
+	    todir="${dist}/client/MacOS-10.1/CrossTease"/>
+	<copy file="${jar}/xt-client.jar"
+	    todir="${dist}/client/MacOS-10.4/CrossTease"/>
+	<copy file="${jar}/xt-server.jar"
+	    todir="${dist}/CrossTease-server"/>
+	<copy file="${jar}/xt-perf-client.jar"
+	    todir="${dist}/xt-perf/client"/>
+	<copy file="${jar}/xt-perf-server.jar"
+	    todir="${dist}/xt-perf/server"/>
+
+	<!-- Zips -->
+	<mkdir dir="${zip}"/>
+	<zip basedir="${dist}" includes="CrossTease-server/**"
+	    destfile="${zip}/CrossTease-server.zip"/>
+	<zip basedir="${dist}/client/generic" includes="CrossTease/**"
+	    destfile="${zip}/CrossTease-generic.zip"/>
+	<zip basedir="${dist}/client/MacOS-10.1" includes="CrossTease/**"
+	    destfile="${zip}/CrossTease-MacOS-10.1.zip"/>
+	<zip basedir="${dist}/client/MacOS-10.4" includes="CrossTease/**"
+	    destfile="${zip}/CrossTease-MacOS-10.4.zip"/>
+	<zip basedir="../.." includes="xt/project/**"
+	    destfile="${zip}/CrossTease-src.zip"/>
+
+    </target>
+
+    <target name="test" depends="build">
+	<junit fork="yes" dir="run/suite" haltonfailure="yes" filtertrace="no">
+	    <classpath>
+		<path refid="classpath-test"/>
+		<pathelement path="${class}"/>
+	    </classpath>
+	    <test name="org.schweisguth.xttest.Suite"/>
+	    <test name="org.schweisguth.xttest.UISuite"/>
+	    <formatter type="brief" usefile="false"/>
+	</junit>
+    </target>
+
+    <target name="coverage" depends="build">
+	<taskdef classpath="${lib}/jcoverage-1.0.5/jcoverage.jar"
+	    resource="tasks.properties"/>
+        <instrument todir="${coverage-class}">
+            <fileset dir="${class}">
+                <include name="**/*.class"/>
+            </fileset>
+        </instrument>
+	<junit fork="yes" dir="run/suite" haltonfailure="yes" filtertrace="no">
+	    <classpath>
+		<path refid="classpath-test"/>
+		<pathelement path="${build}/coverage-class"/>
+		<pathelement path="${jcoverage}/jcoverage.jar"/>
+		<pathelement path="${jcoverage}/lib/bcel/5.1/bcel.jar"/>
+		<pathelement path="${jcoverage}/lib/gnu/getopt/1.0.9/java-getopt-1.0.9.jar"/>
+		<pathelement path="${jcoverage}/lib/log4j/1.2.8/log4j-1.2.8.jar"/>
+		<pathelement path="${jcoverage}/lib/oro/2.0.7/jakarta-oro-2.0.7.jar"/>
+	    </classpath>
+	    <test name="org.schweisguth.xttest.Suite"/>
+	    <test name="org.schweisguth.xttest.UISuite"/>
+	    <formatter type="brief" usefile="false"/>
+	</junit>
+	<merge>
+	    <fileset dir=".">
+		<include name="jcoverage.ser"/>
+		<include name="run/suite/jcoverage.ser"/>
+	    </fileset>
+	</merge>
+	<report srcdir="src" destdir="${coverage-report}"/>
+    </target>
+
+    <target name="clean">
+	<delete dir="${build}"/>
+	<delete file="jcoverage.ser"/>
+	<delete file="run/suite/jcoverage.ser"/>
+    </target>
+
+</project>
