@@ -19,7 +19,8 @@ public class ChatDisplayTest extends BaseTest {
 
     public void testCreateJoiningObserver() throws RemoteException {
         assertFirstMessage(new JoiningState(), "observer",
-            ChatDisplayController.WELCOME + ChatDisplayController.JOIN_OR_WATCH);
+            ChatDisplayController.WELCOME +
+                ChatDisplayController.JOIN_OR_WATCH);
     }
 
     public void testCreateOtherStatePlayer() throws RemoteException {
@@ -34,15 +35,14 @@ public class ChatDisplayTest extends BaseTest {
 
     public void testCreateEndedPlayer() throws RemoteException {
         assertFirstMessage(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player1",
-            ChatDisplayController.WELCOME_BACK +
+            "player1", ChatDisplayController.WELCOME_BACK +
                 ChatDisplayController.START_NEW_GAME);
     }
 
     public void testCreateEndedObserver() throws RemoteException {
         assertFirstMessage(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "observer",
-            ChatDisplayController.WELCOME + ChatDisplayController.START_NEW_GAME);
+            "observer", ChatDisplayController.WELCOME +
+            ChatDisplayController.START_NEW_GAME);
     }
 
     private static void assertFirstMessage(StateImpl pState, String pPlayer,
@@ -50,7 +50,26 @@ public class ChatDisplayTest extends BaseTest {
         Client client = new LocalClient(new GameImpl(pState), pPlayer);
         ChatDisplayController controller = new ChatDisplayController(client);
         client.sendRefreshEvent();
-        assertTrue(controller.getText().indexOf(pMessage) != -1);
+        assertTrue(removeExtraWhitespace(controller.getText())
+            .indexOf(pPlayer + pMessage) != -1);
+    }
+
+    private static String removeExtraWhitespace(String string) {
+        StringBuffer buffer = new StringBuffer();
+        boolean alreadySawWhitespace = false;
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            if (c == ' ' || c == '\n') {
+                if (! alreadySawWhitespace) {
+                    buffer.append(' ');
+                    alreadySawWhitespace = true;
+                }
+            } else {
+                buffer.append(c);
+                alreadySawWhitespace = false;
+            }
+        }
+        return buffer.toString();
     }
 
 }

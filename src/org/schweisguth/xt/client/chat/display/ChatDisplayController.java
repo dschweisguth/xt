@@ -11,10 +11,10 @@ import org.schweisguth.xt.common.game.Request;
 
 public class ChatDisplayController {
     // Constants
-    public static final String WELCOME_BACK = "Welcome back to CrossTease.";
+    public static final String WELCOME_BACK = ", welcome back to CrossTease.";
     public static final String START_NEW_GAME =
         " Press Start New Game to start a new game.";
-    public static final String WELCOME = "Welcome to CrossTease.";
+    public static final String WELCOME = ", welcome to CrossTease.";
     public static final String JOIN_OR_WATCH =
         " Press Join Game to join the game, or just watch.";
     public static final String WATCH =
@@ -47,19 +47,17 @@ public class ChatDisplayController {
             Game game = pEvent.getGame();
             String player = mClient.getPlayer();
             if (game.getPlayers().contains(player)) {
-                message = WELCOME_BACK;
-                if (
-                    game.canExecute(new Request(player, new StartNewGameCommand())))
-                {
+                message = player + WELCOME_BACK;
+                if (game.canExecute(
+                    new Request(player, new StartNewGameCommand()))) {
                     message += START_NEW_GAME;
                 }
             } else {
-                message = WELCOME;
+                message = player + WELCOME;
                 if (game.canExecute(new Request(player, new JoinCommand()))) {
                     message += JOIN_OR_WATCH;
-                } else if (
-                    game.canExecute(new Request(player, new StartNewGameCommand())))
-                {
+                } else if (game.canExecute(
+                    new Request(player, new StartNewGameCommand()))) {
                     message += START_NEW_GAME;
                 } else {
                     message += WATCH;
