@@ -48,22 +48,32 @@ public class Logger {
         log(Level.FINE, pMessage);
     }
 
+    public void finer(String pMessage) {
+        log(Level.FINER, pMessage);
+    }
+
     private static boolean shouldLog(String pLogLevel, Level pMessageLevel) {
         return pMessageLevel.equals(Level.SEVERE) ||
             pMessageLevel.equals(Level.WARNING) &&
                 (pLogLevel.equals(Level.WARNING.getName()) ||
                     pLogLevel.equals(Level.INFO.getName()) ||
                     pLogLevel.equals(Level.CONFIG.getName()) ||
-                    pLogLevel.equals(Level.FINE.getName())) ||
+                    pLogLevel.equals(Level.FINE.getName()) ||
+                    pLogLevel.equals(Level.FINER.getName())) ||
             pMessageLevel.equals(Level.INFO) &&
                 (pLogLevel.equals(Level.INFO.getName()) ||
                     pLogLevel.equals(Level.CONFIG.getName()) ||
-                    pLogLevel.equals(Level.FINE.getName())) ||
+                    pLogLevel.equals(Level.FINE.getName()) ||
+                    pLogLevel.equals(Level.FINER.getName())) ||
             pMessageLevel.equals(Level.CONFIG) &&
                 (pLogLevel.equals(Level.CONFIG.getName()) ||
-                    pLogLevel.equals(Level.FINE.getName())) ||
+                    pLogLevel.equals(Level.FINE.getName()) ||
+                    pLogLevel.equals(Level.FINER.getName())) ||
             pMessageLevel.equals(Level.FINE) &&
-                pLogLevel.equals(Level.FINE.getName());
+                (pLogLevel.equals(Level.FINE.getName()) ||
+                    pLogLevel.equals(Level.FINER.getName())) ||
+            pMessageLevel.equals(Level.FINER) &&
+                pLogLevel.equals(Level.FINER.getName());
     }
 
 }

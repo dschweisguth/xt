@@ -7,6 +7,7 @@ public class Level {
     public static final Level INFO = new Level("INFO");
     public static final Level CONFIG = new Level("CONFIG");
     public static final Level FINE = new Level("FINE");
+    public static final Level FINER = new Level("FINER");
 
     // Fields
     private final String mName;
