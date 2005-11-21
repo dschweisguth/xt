@@ -42,8 +42,10 @@ class PlayerModel {
     }
 
     public void setIsTurn(boolean pIsTurn) {
-        mIsTurn = pIsTurn;
-        mObserverManager.update();
+        if (mIsTurn != pIsTurn) {
+            mIsTurn = pIsTurn;
+            mObserverManager.update();
+        }
     }
 
     // Methods: overrides

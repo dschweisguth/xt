@@ -26,9 +26,6 @@ import org.schweisguth.xt.common.server.Server;
 import org.schweisguth.xt.common.util.logging.Level;
 import org.schweisguth.xt.common.util.logging.Logger;
 
-// TODO bug: non-current player doesn't see box for current player after
-// quitting and restarting
-
 public class ServerImpl extends UnicastRemoteObject implements Server {
     // Constants
     private static final String SAVE_FILE = "game.ser";
