@@ -34,8 +34,7 @@ public class TransferSetTest extends TestCase {
         TransferSet transferSet = new TransferSet(rackPosition, 0, 0);
         try {
             transferSet.add(rackPosition, 1, 0);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -46,8 +45,7 @@ public class TransferSetTest extends TestCase {
         TransferSet transferSet = new TransferSet(0, boardPosition);
         try {
             transferSet.add(1, boardPosition);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -79,8 +77,7 @@ public class TransferSetTest extends TestCase {
         TransferSet transferSet = new TransferSet(0, 0, 0);
         try {
             transferSet.move(1, 2);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -94,8 +91,7 @@ public class TransferSetTest extends TestCase {
         transferSet.add(destination, new Position(1, 0));
         try {
             transferSet.move(source, source);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -126,8 +122,7 @@ public class TransferSetTest extends TestCase {
         TransferSet transferSet = new TransferSet(0, 0, 0);
         try {
             transferSet.move(new Position(1, 0), new Position(2, 0));
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -141,8 +136,7 @@ public class TransferSetTest extends TestCase {
         transferSet.add(1, destination);
         try {
             transferSet.move(source, source);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -166,8 +160,7 @@ public class TransferSetTest extends TestCase {
         TransferSet transferSet = new TransferSet(0, 0, 0);
         try {
             transferSet.takeBack(new Transfer(0, 1, 0));
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();

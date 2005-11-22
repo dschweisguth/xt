@@ -34,8 +34,7 @@ public class BoardTest extends TestCase {
         board.place(Tile.get('A'), 7, 7);
         try {
             board.place(Tile.get('A'), 7, 7);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         Assert.fail();
@@ -53,8 +52,7 @@ public class BoardTest extends TestCase {
         Board board = new Board();
         try {
             board.place(new Rack(""), new TransferSet(0, 0, 0));
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -140,8 +138,7 @@ public class BoardTest extends TestCase {
         board.place(Tile.get('A'), source);
         try {
             board.move(source, source);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         Assert.fail();

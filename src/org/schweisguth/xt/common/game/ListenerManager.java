@@ -59,8 +59,7 @@ public class ListenerManager implements Serializable, Listener {
                 listener.send(pEvent);
                 Logger.global.fine("Sent event " + pEvent + " to " + listener +
                     " in " + (System.currentTimeMillis() - startTime) + " ms.");
-            }
-            catch (RemoteException e) {
+            } catch (RemoteException e) {
                 // TODO catch problems with the following call
                 // TODO send a message to remaining game clients
                 listeners.remove();

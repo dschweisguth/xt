@@ -36,8 +36,7 @@ class ProtectiveThread extends Thread {
     public void run() {
         try {
             mProtectable.protect();
-        }
-        catch (Throwable t) {
+        } catch (Throwable t) {
             rememberFirstThrown(t);
         }
     }

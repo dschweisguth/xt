@@ -11,8 +11,7 @@ public class ArrayListSetListTest extends TestCase {
     public void testCreateArrayNull() {
         try {
             new ArraySetList((Object[]) null);
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             return;
         }
         fail();
@@ -21,8 +20,7 @@ public class ArrayListSetListTest extends TestCase {
     public void testCreateArrayBad() {
         try {
             new ArraySetList(new String[] { "", "" });
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             return;
         }
         fail();
@@ -31,8 +29,7 @@ public class ArrayListSetListTest extends TestCase {
     public void testAddBad() {
         try {
             new ArraySetList(new String[] { "" }).add("");
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             return;
         }
         fail();
@@ -42,8 +39,7 @@ public class ArrayListSetListTest extends TestCase {
         List addend = CollectionUtil.asList("");
         try {
             new ArraySetList(new String[] { "" }).addAll(addend);
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             return;
         }
         fail();

@@ -24,8 +24,7 @@ public abstract class BaseDisableableAction extends BaseClientAction
             public void run() {
                 try {
                     execute();
-                }
-                catch (RemoteException e) {
+                } catch (RemoteException e) {
                     new ErrorDialog("Couldn't contact game server", e).show();
                 }
             }
@@ -45,8 +44,7 @@ public abstract class BaseDisableableAction extends BaseClientAction
     protected void updateEnabled() {
         try {
             setEnabled(shouldBeEnabled());
-        }
-        catch (RemoteException e) {
+        } catch (RemoteException e) {
             new ErrorDialog("Couldn't contact game server", e).show();
         }
     }

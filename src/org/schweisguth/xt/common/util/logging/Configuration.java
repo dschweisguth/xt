@@ -39,20 +39,16 @@ class Configuration {
                 InputStream stream = new FileInputStream(FILE_NAME);
                 try {
                     properties.load(stream);
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     log("WARNING", "Couldn't load " + FILE_NAME, e);
-                }
-                finally {
+                } finally {
                     try {
                         stream.close();
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         log("WARNING", "Couldn't close " + FILE_NAME, e);
                     }
                 }
-            }
-            catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 log("CONFIG", "Couldn't find " + FILE_NAME);
             }
             mProperties = properties;

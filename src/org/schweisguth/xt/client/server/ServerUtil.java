@@ -17,11 +17,9 @@ public class ServerUtil {
     public static Server getServer(String pHost) throws RemoteException {
         try {
             return (Server) Naming.lookup("//" + pHost + "/" + Server.NAME);
-        }
-        catch (NotBoundException e) {
+        } catch (NotBoundException e) {
             throw wrapInRemoteException(e);
-        }
-        catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
             throw wrapInRemoteException(e);
         }
     }

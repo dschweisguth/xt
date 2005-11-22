@@ -1,17 +1,16 @@
 package org.schweisguth.xt.client;
 
+import java.awt.Frame;
+import java.rmi.RemoteException;
+import java.rmi.server.RMISocketFactory;
+import javax.swing.UIManager;
 import org.schweisguth.xt.client.error.ErrorDialog;
 import org.schweisguth.xt.client.server.ClientImpl;
 import org.schweisguth.xt.client.server.ServerUtil;
-import org.schweisguth.xt.common.server.Server;
 import org.schweisguth.xt.common.server.NATSocketFactory;
+import org.schweisguth.xt.common.server.Server;
 import org.schweisguth.xt.common.util.logging.Level;
 import org.schweisguth.xt.common.util.logging.Logger;
-
-import javax.swing.*;
-import java.awt.*;
-import java.rmi.RemoteException;
-import java.rmi.server.RMISocketFactory;
 
 // TODO package as MacOS application
 // TODO attempting to transfer onto approved tile results in selecting it
@@ -38,16 +37,14 @@ class Main {
                     client.sendRefreshEvent();
                     logInDialog.setPrefs();
                     break;
-                }
-                catch (RemoteException e) {
+                } catch (RemoteException e) {
                     logInDialog.clear();
                     String message = "Couldn't log in. Please try again.";
                     Logger.global.log(Level.INFO, message, e);
                     new ErrorDialog(message, e).show();
                 }
             }
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             final String message = "Unexpected error.";
             Logger.global.log(Level.SEVERE, message, e);
             new ErrorDialog(message, e).show();

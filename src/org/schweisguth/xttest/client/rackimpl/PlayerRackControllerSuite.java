@@ -10,8 +10,7 @@ public class PlayerRackControllerSuite {
             suite.addTestSuite(ClientPlayerRackControllerTest.class);
             suite.addTestSuite(OtherPlayerRackControllerTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

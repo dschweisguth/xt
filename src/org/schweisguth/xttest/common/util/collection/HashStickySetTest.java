@@ -11,8 +11,7 @@ public class HashStickySetTest extends TestCase {
     public void testCreateCollectionNull() {
         try {
             new HashStickySet(null);
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             return;
         }
         fail();
@@ -21,8 +20,7 @@ public class HashStickySetTest extends TestCase {
     public void testCreateCollectionBad() {
         try {
             new HashStickySet(Arrays.asList(new String[] { "", "" }));
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             return;
         }
         fail();
@@ -33,8 +31,7 @@ public class HashStickySetTest extends TestCase {
         set.add("");
         try {
             set.add("");
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             return;
         }
         fail();
@@ -45,8 +42,7 @@ public class HashStickySetTest extends TestCase {
         set.add("");
         try {
             set.addAll(CollectionUtil.asList(""));
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             return;
         }
         fail();

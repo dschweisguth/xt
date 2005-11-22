@@ -79,8 +79,7 @@ public class ClientPlayerRackController extends PlayerRackController {
                 } else {
                     selectIfOccupied(rackSelection);
                 }
-            }
-            catch (RemoteException e) {
+            } catch (RemoteException e) {
                 new ErrorDialog("Couldn't contact game server", e).show();
             }
         }

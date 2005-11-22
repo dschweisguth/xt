@@ -149,8 +149,7 @@ public abstract class StateImpl implements State {
         try {
             Object result = invoke("canExecute", pRequest);
             return ((Boolean) result).booleanValue();
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             return false;
         }
     }
@@ -161,8 +160,7 @@ public abstract class StateImpl implements State {
         String methodName = "execute";
         try {
             getContext().send((Event) invoke(methodName, pRequest));
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             throw new ChainedRuntimeException("Couldn't find " + methodName +
                 "(" + pRequest.getClass().getName() + ")", e);
         }
@@ -179,12 +177,10 @@ public abstract class StateImpl implements State {
                 new Object[] { pRequest.getPlayer(), command });
             Assert.assertNotNull(result);
             return result;
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             throw new ChainedRuntimeException("Couldn't access " + pMethodName +
                 "(" + commandClass.getName() + ")", e);
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             throw new ChainedRuntimeException("Couldn't invoke " + pMethodName +
                 "(" + commandClass.getName() + ")", e);
         }

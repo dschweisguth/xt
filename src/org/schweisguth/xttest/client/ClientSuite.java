@@ -19,8 +19,7 @@ public class ClientSuite {
             suite.addTestSuite(SeatingControllerTest.class);
             suite.addTest(ToolBarSuite.suite());
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

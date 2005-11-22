@@ -10,8 +10,7 @@ public class StateImplSuite {
             suite.addTestSuite(StateImplTest.class);
             suite.addTestSuite(ChatEventTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

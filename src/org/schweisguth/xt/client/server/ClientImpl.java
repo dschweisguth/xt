@@ -51,12 +51,10 @@ public class ClientImpl extends BaseClientImpl {
                 mGame = pEvent.getGame();
                 try {
                     getListenerManager().send(pEvent);
-                }
-                catch (Error e) {
+                } catch (Error e) {
                     logSendError(e);
                     throw e;
-                }
-                catch (RuntimeException e) {
+                } catch (RuntimeException e) {
                     logSendError(e);
                     throw e;
                 }

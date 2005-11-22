@@ -16,8 +16,7 @@ public class DomainSuite {
             suite.addTestSuite(TileTest.class);
             suite.addTestSuite(TransferSetTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

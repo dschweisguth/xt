@@ -10,8 +10,7 @@ public class HasCurrentPlayerSuite {
             suite.addTestSuite(HasCurrentPlayerStateTest.class);
             suite.addTestSuite(RearrangedRackEventTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

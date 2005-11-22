@@ -44,8 +44,7 @@ public class ErrorDialogTest extends JFCTestCase {
     static {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new ChainedRuntimeException(e);
         }
     }
@@ -411,8 +410,7 @@ public class ErrorDialogTest extends JFCTestCase {
             // test.
             assertEquals("One or more dialogs remained open after the test",
                 0, TestHelper.getShowingDialogs().size());
-        }
-        finally {
+        } finally {
             // Close any dialogs that remain open
             Iterator i = TestHelper.getShowingDialogs().iterator();
             while (i.hasNext()) {

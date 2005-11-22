@@ -46,8 +46,7 @@ class MapTestUtil {
         Map subjectBeforePut = new HashMap(pSubject);
         try {
             pSubject.put("key1", "value2");
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePut, pSubject);
             return;
         }
@@ -84,8 +83,7 @@ class MapTestUtil {
         source.put("key1", "value2");
         try {
             pSubject.putAll(source);
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePutAll, pSubject);
             return;
         }
@@ -113,8 +111,7 @@ class MapTestUtil {
         Map subjectBeforePut = new HashMap(pSubject);
         try {
             pSubject.put("key2", "value1");
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePut, pSubject);
             return;
         }
@@ -143,8 +140,7 @@ class MapTestUtil {
         source.put("key2", "value1");
         try {
             pSubject.putAll(source);
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePutAll, pSubject);
             return;
         }
@@ -158,8 +154,7 @@ class MapTestUtil {
         source.put("key2", "value1");
         try {
             pSubject.putAll(source);
-        }
-        catch (DuplicateElementException e) {
+        } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePutAll, pSubject);
             return;
         }

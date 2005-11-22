@@ -32,8 +32,7 @@ public class RackTest extends TestCase {
         Rack rack = new Rack("A");
         try {
             rack.add(Tile.get('A'), 0);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -50,8 +49,7 @@ public class RackTest extends TestCase {
         Rack rack = new Rack("NNNNNNN");
         try {
             rack.add(Arrays.asList(new Tile[] { Tile.get('Q') }));
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -88,8 +86,7 @@ public class RackTest extends TestCase {
     public void testMoveBad() {
         try {
             new Rack().move(0, 1);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -99,8 +96,7 @@ public class RackTest extends TestCase {
         Rack rack = new Rack();
         try {
             rack.remove(0);
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();

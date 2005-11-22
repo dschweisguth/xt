@@ -11,8 +11,7 @@ public class ChallengingSuite {
             suite.addTestSuite(OverruledChallengeEventTest.class);
             suite.addTestSuite(SustainedChallengeEventTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

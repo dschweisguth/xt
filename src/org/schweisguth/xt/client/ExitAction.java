@@ -21,8 +21,7 @@ class ExitAction extends BaseClientAction {
     public void actionPerformed(ActionEvent pEvent) {
         try {
             getClient().disconnect();
-        }
-        catch (RemoteException e) {
+        } catch (RemoteException e) {
             Logger.global.log(Level.WARNING,
                 "Couldn't remove remote listeners", e);
         }

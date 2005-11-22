@@ -73,22 +73,18 @@ public class Preferences {
                 InputStream stream = new FileInputStream(FILE_NAME);
                 try {
                     properties.load(stream);
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     Logger.global.log(Level.WARNING,
                         "Couldn't load " + FILE_NAME, e);
-                }
-                finally {
+                } finally {
                     try {
                         stream.close();
-                    }
-                    catch (IOException e) {
+                    } catch (IOException e) {
                         Logger.global.log(Level.WARNING,
                             "Couldn't close " + FILE_NAME, e);
                     }
                 }
-            }
-            catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 Logger.global.config("Couldn't find " + FILE_NAME);
             }
             mProperties = properties;
@@ -103,17 +99,14 @@ public class Preferences {
                 mProperties.store(stream, "");
                 try {
                     stream.close();
-                }
-                catch (IOException e) {
+                } catch (IOException e) {
                     Logger.global.log(Level.WARNING,
                         "Couldn't close " + FILE_NAME, e);
                 }
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 Logger.global.log(Level.WARNING, "Couldn't write " + FILE_NAME, e);
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             Logger.global.log(Level.WARNING, "Couldn't open " + FILE_NAME, e);
         }
     }

@@ -10,8 +10,7 @@ public class DrawingNewTilesSuite {
             suite.addTestSuite(DrawingNewTilesStateTest.class);
             suite.addTestSuite(DrewNewTilesEventTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

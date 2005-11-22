@@ -14,8 +14,7 @@ public class CollectionSuite {
             suite.addTestSuite(HashStickySetTest.class);
             suite.addTestSuite(HashStickySetMapTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

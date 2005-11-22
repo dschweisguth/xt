@@ -60,8 +60,7 @@ public class MoveTest extends TestCase {
         move.add(new Position(0, 0));
         try {
             move.getParallels();
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();
@@ -84,8 +83,7 @@ public class MoveTest extends TestCase {
     public void testGetEnvelope0() {
         try {
             new Move().getEnvelope();
-        }
-        catch (AssertionFailedError e) {
+        } catch (AssertionFailedError e) {
             return;
         }
         fail();

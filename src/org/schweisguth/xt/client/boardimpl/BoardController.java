@@ -132,8 +132,7 @@ public class BoardController {
                 mHandlingEvent = false;
                 mPreviousSelection =
                     mView.selectionIsEmpty() ? null : mView.getSelection();
-            }
-            finally {
+            } finally {
                 //System.err.println("exiting handleOnce: " +
                 //   "mSecondEventExpected: " + mSecondEventExpected + " " +
                 //   "mPreviousSelection: " + mPreviousSelection + " " +
@@ -191,8 +190,7 @@ public class BoardController {
                     } else {
                         clearBoardSelection();
                     }
-                }
-                catch (RemoteException e) {
+                } catch (RemoteException e) {
                     new ErrorDialog("Couldn't contact game server", e).show();
                 }
             }

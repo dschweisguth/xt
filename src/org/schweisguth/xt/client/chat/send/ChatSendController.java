@@ -29,8 +29,7 @@ public class ChatSendController {
                 if (! text.equals("")) {
                     mClient.execute(new ChatCommand(text));
                 }
-            }
-            catch (RemoteException e) {
+            } catch (RemoteException e) {
                 new ErrorDialog("Couldn't send message", e).show();
             }
             mView.setText("");

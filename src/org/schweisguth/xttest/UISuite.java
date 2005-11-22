@@ -12,8 +12,7 @@ public class UISuite {
             suite.addTestSuite(ErrorDialogTest.class);
             suite.addTestSuite(LogInDialogTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }

@@ -26,12 +26,10 @@ class ChatDisplayView extends JEditorPane {
         try {
             doc.insertBeforeStart(doc.getElement(END_ID), pText + "<br>");
             setCaretPosition(doc.getLength());
-        }
-        catch (BadLocationException e) {
+        } catch (BadLocationException e) {
             Logger.global.log(Level.WARNING,
                 "Couldn't find element \"" + END_ID + "\"", e);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             Logger.global.log(Level.WARNING, "Couldn't insert", e);
         }
     }

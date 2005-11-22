@@ -11,8 +11,7 @@ public class ApprovingSuite {
             suite.addTestSuite(ApprovedEventTest.class);
             suite.addTestSuite(ChallengedEventTest.class);
             return suite;
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
             throw e;
         }
