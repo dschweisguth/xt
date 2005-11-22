@@ -60,9 +60,13 @@ public class ListenerManager implements Serializable, Listener {
                 Logger.global.fine("Sent event " + pEvent + " to " + listener +
                     " in " + (System.currentTimeMillis() - startTime) + " ms.");
             } catch (RemoteException e) {
-                // TODO catch problems with the following call
                 // TODO send a message to remaining game clients
-                listeners.remove();
+                try {
+                    listeners.remove();
+                } catch (Exception removalException) {
+                    Logger.global.log(Level.WARNING,
+                        "Couldn't remove listener", removalException);
+                }
                 Logger.global.log(Level.WARNING,
                     "Couldn't contact listener; removed it.", e);
             }
