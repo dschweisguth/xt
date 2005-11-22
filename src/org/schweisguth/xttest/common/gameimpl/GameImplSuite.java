@@ -30,6 +30,7 @@ public class GameImplSuite {
             suite.addTestSuite(GameImplTest.class);
             suite.addTestSuite(LoggedInEventTest.class);
             suite.addTestSuite(LoggedOutEventTest.class);
+            suite.addTestSuite(WentOffLineEventTest.class);
             return suite;
         } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!

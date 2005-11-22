@@ -16,6 +16,7 @@ public class CommandSuite {
             suite.addTestSuite(EndGameCommandTest.class);
             suite.addTestSuite(ExchangeCommandTest.class);
             suite.addTestSuite(FinishCommandTest.class);
+            suite.addTestSuite(GoOffLineCommandTest.class);
             suite.addTestSuite(JoinCommandTest.class);
             suite.addTestSuite(LogInCommandTest.class);
             suite.addTestSuite(LogOutCommandTest.class);

@@ -12,8 +12,10 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.List;
+import java.util.ArrayList;
 
-public class ListenerManager implements Serializable, Listener {
+public class ListenerManager implements Serializable {
     private static final long serialVersionUID = 6185529658847718522L;
 
     // Fields
@@ -47,22 +49,25 @@ public class ListenerManager implements Serializable, Listener {
         }
     }
 
-    public void send(Event pEvent) {
+    public List send(Event pEvent) {
         mIsForwarding = true;
         ListIterator listeners = mListeners.listIterator();
+        List removedListeners = new ArrayList();
         while (listeners.hasNext()) {
-            ListenerOperations listener = (ListenerOperations) listeners.next();
+            ListenerOperations listener =
+                (ListenerOperations) listeners.next();
             try {
                 long startTime = System.currentTimeMillis();
                 Logger.global.fine(
                     "Sending event " + pEvent + " to " + listener + " ...");
                 listener.send(pEvent);
                 Logger.global.fine("Sent event " + pEvent + " to " + listener +
-                    " in " + (System.currentTimeMillis() - startTime) + " ms.");
+                    " in " + (System.currentTimeMillis() - startTime) +
+                    " ms.");
             } catch (RemoteException e) {
-                // TODO send a message to remaining game clients
                 try {
                     listeners.remove();
+                    removedListeners.add(listener);
                 } catch (Exception removalException) {
                     Logger.global.log(Level.WARNING,
                         "Couldn't remove listener", removalException);
@@ -80,6 +85,7 @@ public class ListenerManager implements Serializable, Listener {
             mListeners.addAll(mListenerAddQueue);
             mListenerAddQueue.clear();
         }
+        return removedListeners;
     }
 
 }

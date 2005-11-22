@@ -1,12 +1,21 @@
 package org.schweisguth.xt.common.gameimpl;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.SortedMap;
+import org.schweisguth.xt.common.command.GoOffLineCommand;
 import org.schweisguth.xt.common.command.LogInCommand;
 import org.schweisguth.xt.common.command.LogOutCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Rack;
 import org.schweisguth.xt.common.domain.ScoreSheet;
-import org.schweisguth.xt.common.game.*;
+import org.schweisguth.xt.common.game.Event;
+import org.schweisguth.xt.common.game.Game;
+import org.schweisguth.xt.common.game.ListenableGame;
+import org.schweisguth.xt.common.game.ListenerManager;
+import org.schweisguth.xt.common.game.ListenerOperations;
+import org.schweisguth.xt.common.game.Request;
 import org.schweisguth.xt.common.gameimpl.approving.ApprovingState;
 import org.schweisguth.xt.common.gameimpl.challenging.ChallengingState;
 import org.schweisguth.xt.common.gameimpl.drawingforfirst.DrawingForFirstState;
@@ -25,9 +34,6 @@ import org.schweisguth.xt.common.util.collection.SetList;
 import org.schweisguth.xt.common.util.collection.StickyMap;
 import org.schweisguth.xt.common.util.contract.Assert;
 import org.schweisguth.xt.common.util.logging.Logger;
-
-import java.util.Iterator;
-import java.util.SortedMap;
 
 public class GameImpl implements ListenableGame, StateContext {
     private static final long serialVersionUID = 281342796260416153L;
@@ -174,15 +180,31 @@ public class GameImpl implements ListenableGame, StateContext {
 
     public void send(Event pEvent) {
         Assert.assertNotNull(pEvent);
-        long startTime = System.currentTimeMillis();
-        Logger.global.fine("Sending event " + pEvent + " ...");
-        getListenerManager().send(pEvent);
-        Logger.global.fine("Sent event " + pEvent + " in " +
-            (System.currentTimeMillis() - startTime) + " ms.");
+
+        // Log the message
         String message = pEvent.toHTML();
         if (! message.equals("")) {
             Logger.global.info(message);
         }
+
+        // Send the event
+        long startTime = System.currentTimeMillis();
+        Logger.global.fine("Sending event " + pEvent + " ...");
+        List removedListeners = getListenerManager().send(pEvent);
+        Logger.global.fine("Sent event " + pEvent + " in " +
+            (System.currentTimeMillis() - startTime) + " ms.");
+
+        // Remove removed listeners and send another event for each
+        for (Iterator i = removedListeners.iterator(); i.hasNext();) {
+            Object listener = i.next();
+            String player =
+                (String) getListenersToPlayerMap().remove(listener);
+            Logger.global.fine("ListenerManager removed " + player + " " +
+                listener + "; removed it from player-to-listener map.");
+            send(new WentOffLineEvent(this,
+                new Request(player, new GoOffLineCommand())));
+        }
+
     }
 
     // Methods: overrides
