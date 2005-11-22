@@ -12,7 +12,6 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 // TODO ensure that every command has a listener?
-// TODO send message when listener is lost
 // TODO Measure speed and latency to Grandma's machine
 // TODO look for a Java update for Grandma's computer
 // TODO investigate lease period
