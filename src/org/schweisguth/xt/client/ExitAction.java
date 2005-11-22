@@ -7,7 +7,8 @@ import org.schweisguth.xt.client.server.Client;
 import org.schweisguth.xt.common.util.logging.Level;
 import org.schweisguth.xt.common.util.logging.Logger;
 
-// TODO On MacOS, quitting with apple-Q doesn't trigger this
+// TODO On MacOS 10.4, quitting with apple-Q doesn't trigger this. 10.1?
+// TODO Do clicking the close box and File->Exit do it on MacOS 10.1?
 
 class ExitAction extends BaseClientAction {
     // Constructors
