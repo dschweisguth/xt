@@ -5,6 +5,8 @@ import org.schweisguth.xt.client.server.Client;
 import org.schweisguth.xt.common.util.logging.Logger;
 import org.schweisguth.xt.common.util.logging.Level;
 
+// TODO Do apple-Q, clicking the close box and File->Exit all get here on MacOS 10.1?
+
 public class QuitUtil {
     public static void quit(Client pClient) {
         try {
