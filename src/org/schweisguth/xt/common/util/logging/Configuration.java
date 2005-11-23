@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.Properties;
+import org.schweisguth.xt.common.util.io.IOUtil;
 
 class Configuration {
     // Constants
@@ -42,11 +43,7 @@ class Configuration {
                 } catch (IOException e) {
                     log("WARNING", "Couldn't load " + FILE_NAME, e);
                 } finally {
-                    try {
-                        stream.close();
-                    } catch (IOException e) {
-                        log("WARNING", "Couldn't close " + FILE_NAME, e);
-                    }
+                    IOUtil.close(stream);
                 }
             } catch (FileNotFoundException e) {
                 log("CONFIG", "Couldn't find " + FILE_NAME);

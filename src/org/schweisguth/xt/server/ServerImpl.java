@@ -5,10 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RMISecurityManager;
@@ -23,6 +21,7 @@ import org.schweisguth.xt.common.game.Request;
 import org.schweisguth.xt.common.gameimpl.GameImpl;
 import org.schweisguth.xt.common.server.NATSocketFactory;
 import org.schweisguth.xt.common.server.Server;
+import org.schweisguth.xt.common.util.io.IOUtil;
 import org.schweisguth.xt.common.util.logging.Level;
 import org.schweisguth.xt.common.util.logging.Logger;
 
@@ -59,10 +58,10 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
                 try {
                     game = (ListenableGame) objects.readObject();
                 } finally {
-                    close(objects);
+                    IOUtil.close(objects);
                 }
             } finally {
-                close(bytes);
+                IOUtil.close(bytes);
             }
         } catch (FileNotFoundException e) {
             Logger.global.info("Couldn't find previous game to load");
@@ -79,14 +78,6 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
             throw new RemoteException("Couldn't bind server", e);
         }
 
-    }
-
-    private static void close(InputStream pResource) {
-        try {
-            pResource.close();
-        } catch (IOException e) {
-            Logger.global.log(Level.WARNING, "Couldn't close resource", e);
-        }
     }
 
     public static void clear() {
@@ -119,10 +110,10 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
                     try {
                         objects.writeObject(mDelegate);
                     } finally {
-                        close(objects);
+                        IOUtil.close(objects);
                     }
                 } finally {
-                    close(bytes);
+                    IOUtil.close(bytes);
                 }
                 boolean renameSucceeded = newSaveFile.renameTo(new File(SAVE_FILE));
                 if (! renameSucceeded) {
@@ -138,14 +129,6 @@ public class ServerImpl extends UnicastRemoteObject implements Server {
         } catch (RuntimeException e) {
             logExecuteError(pRequest, e);
             throw e;
-        }
-    }
-
-    private static void close(OutputStream pResource) {
-        try {
-            pResource.close();
-        } catch (IOException e) {
-            Logger.global.log(Level.WARNING, "Couldn't close resource", e);
         }
     }
 

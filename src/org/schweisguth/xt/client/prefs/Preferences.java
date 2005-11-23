@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import org.schweisguth.xt.common.util.collection.HashStickyMap;
 import org.schweisguth.xt.common.util.collection.StickyMap;
+import org.schweisguth.xt.common.util.io.IOUtil;
 import org.schweisguth.xt.common.util.logging.Level;
 import org.schweisguth.xt.common.util.logging.Logger;
 
@@ -77,12 +78,7 @@ public class Preferences {
                     Logger.global.log(Level.WARNING,
                         "Couldn't load " + FILE_NAME, e);
                 } finally {
-                    try {
-                        stream.close();
-                    } catch (IOException e) {
-                        Logger.global.log(Level.WARNING,
-                            "Couldn't close " + FILE_NAME, e);
-                    }
+                    IOUtil.close(stream);
                 }
             } catch (FileNotFoundException e) {
                 Logger.global.config("Couldn't find " + FILE_NAME);
@@ -97,14 +93,10 @@ public class Preferences {
             FileOutputStream stream = new FileOutputStream(FILE_NAME);
             try {
                 mProperties.store(stream, "");
-                try {
-                    stream.close();
-                } catch (IOException e) {
-                    Logger.global.log(Level.WARNING,
-                        "Couldn't close " + FILE_NAME, e);
-                }
             } catch (IOException e) {
                 Logger.global.log(Level.WARNING, "Couldn't write " + FILE_NAME, e);
+            } finally {
+                IOUtil.close(stream);
             }
         } catch (FileNotFoundException e) {
             Logger.global.log(Level.WARNING, "Couldn't open " + FILE_NAME, e);

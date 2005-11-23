@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import org.schweisguth.xt.common.util.logging.Logger;
+import org.schweisguth.xt.common.util.io.IOUtil;
 
 public class Configuration {
     // Constants
@@ -49,13 +50,7 @@ public class Configuration {
                 } catch (IOException e) {
                     Logger.global.warning("Couldn't load " + FILE_NAME, e);
                 } finally {
-                    // TODO centralize file closes
-                    try {
-                        stream.close();
-                    } catch (IOException e) {
-                        Logger.global.warning(
-                            "Couldn't close " + FILE_NAME, e);
-                    }
+                    IOUtil.close(stream);
                 }
             } catch (FileNotFoundException e) {
                 Logger.global.config("Couldn't find " + FILE_NAME);

@@ -119,97 +119,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ExitAction.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ExitAction.java">
+      <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/configuration/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="576" selection-end="576" vertical-scroll-proportion="0.34192672">
+            <state line="63" column="0" selection-start="1873" selection-end="1873" vertical-scroll-proportion="0.9023067">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuitUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/QuitUtil.java">
+      <file leaf-file-name="Preferences.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/prefs/Preferences.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="596" selection-end="596" vertical-scroll-proportion="0.3093623">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/server/ServerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="27" selection-start="2341" selection-end="2341" vertical-scroll-proportion="0.1356852">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Util.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/testutil/Util.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.6024423">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IOUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/util/io/IOUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="0.47218454">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="13" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.19538671">
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Configuration.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/configuration/Configuration.java">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/util/logging/Configuration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="10" selection-start="843" selection-end="843" vertical-scroll-proportion="0.31614655">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuitHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/QuitHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MRJQuitHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/MRJQuitHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.43962008">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EAWTQuitHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/EAWTQuitHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="485" selection-end="845" vertical-scroll-proportion="0.4559023">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/server/ClientImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="13" selection-start="1135" selection-end="1135" vertical-scroll-proportion="-0.29308006">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ClientView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="12" selection-start="7320" selection-end="7353" vertical-scroll-proportion="2.816825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ClientController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="46" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.43962008">
+            <state line="66" column="0" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.9023067">
               <folding />
             </state>
           </provider>
@@ -246,7 +206,7 @@
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" value="xt" />
-    <option name="LAST_EDITED_TAB_NAME" value="Libraries (Classpath)" />
+    <option name="LAST_EDITED_TAB_NAME" value="Paths" />
   </component>
   <component name="NamedScopeManager" />
   <component name="PackagesPane">
@@ -429,7 +389,87 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/client" />
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/common" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/common/util" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="xt.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="xt" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/common" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/common/util" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/common/util/io" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="xt.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="xt" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xt/common" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -482,6 +522,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="org.schweisguth.xt.common.util.io.IOUtil" />
       <recent name="org.schweisguth.xt.client.QuitUtil" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -565,7 +606,7 @@
         <value defaultName="wholeProject" />
       </option>
     </configuration>
-    <configuration selected="false" default="false" name="Suite" type="Application" factoryName="Application">
+    <configuration selected="true" default="false" name="Suite" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="junit.textui.TestRunner" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="org.schweisguth.xttest.Suite" />
@@ -593,7 +634,7 @@
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
     </configuration>
-    <configuration selected="true" default="false" name="Server" type="Application" factoryName="Application">
+    <configuration selected="false" default="false" name="Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.schweisguth.xt.server.ServerImpl" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -744,7 +785,7 @@
   <component name="VcsManagerConfiguration">
     <option name="PUT_FOCUS_INTO_COMMENT" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved comment" />
     <option name="SAVE_LAST_COMMIT_MESSAGE" value="true" />
     <option name="CHECKIN_DIALOG_SPLITTER_PROPORTION" value="0.8" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -764,6 +805,7 @@
     <MESSAGE value="Caught error in bad listener removal" />
     <MESSAGE value="Removed completed TODO" />
     <MESSAGE value="Comment" />
+    <MESSAGE value="Moved comment" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -804,74 +846,37 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/game/ListenerManager.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ExitAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="3254" selection-end="3254" vertical-scroll-proportion="0.96743554">
+        <state line="21" column="0" selection-start="496" selection-end="496" vertical-scroll-proportion="0.3093623">
           <folding>
-            <marker date="1132700629000" expanded="false" signature="48:619" placeholder="..." />
-            <marker date="1132700629000" expanded="true" signature="1053:1098" placeholder="{...}" />
-            <marker date="1132700629000" expanded="true" signature="1158:1347" placeholder="{...}" />
-            <marker date="1132700629000" expanded="true" signature="1410:1664" placeholder="{...}" />
-            <marker date="1132700629000" expanded="true" signature="1701:3250" placeholder="{...}" />
+            <marker date="1132772534000" expanded="false" signature="43:176" placeholder="..." />
+            <marker date="1132772534000" expanded="true" signature="281:320" placeholder="{...}" />
+            <marker date="1132772534000" expanded="true" signature="417:492" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/GameImplSuite.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/QuitUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="42" selection-start="1761" selection-end="1761" vertical-scroll-proportion="0.34192672">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/base/BaseEventTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/action/ActionSuite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/boardimpl/BoardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="46" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.43962008">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ClientView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="12" selection-start="7320" selection-end="7353" vertical-scroll-proportion="2.816825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/server/ClientImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="1135" selection-end="1135" vertical-scroll-proportion="-0.29308006">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/EAWTQuitHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="485" selection-end="845" vertical-scroll-proportion="0.4559023">
+        <state line="21" column="0" selection-start="683" selection-end="683" vertical-scroll-proportion="0.34192672">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.19538671">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/QuitHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0651289">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -884,39 +889,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/QuitHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/EAWTQuitHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0651289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/configuration/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="10" selection-start="843" selection-end="843" vertical-scroll-proportion="0.31614655">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="13" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.19538671">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/QuitUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="596" selection-end="596" vertical-scroll-proportion="0.3093623">
+        <state line="28" column="0" selection-start="485" selection-end="845" vertical-scroll-proportion="0.4559023">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ExitAction.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/server/ClientImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="576" selection-end="576" vertical-scroll-proportion="0.34192672">
+        <state line="28" column="13" selection-start="1135" selection-end="1135" vertical-scroll-proportion="-0.29308006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ClientView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="196" column="12" selection-start="7320" selection-end="7353" vertical-scroll-proportion="2.816825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="46" selection-start="1535" selection-end="1535" vertical-scroll-proportion="0.43962008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/client/prefs/Preferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/util/logging/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.9023067">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/util/io/IOUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="0.47218454">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/testutil/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.6024423">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/server/ServerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="27" selection-start="2341" selection-end="2341" vertical-scroll-proportion="0.1356852">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/configuration/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="1873" selection-end="1873" vertical-scroll-proportion="0.9023067">
           <folding />
         </state>
       </provider>
