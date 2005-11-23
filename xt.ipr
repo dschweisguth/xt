@@ -36,7 +36,9 @@
       <language name="vbscript" engine="org.apache.bsf.engines.activescript.ActiveScriptEngine" />
     </languages>
     <startupscripts />
-    <preferredrecentcommandsdividerlocations />
+    <preferredrecentcommandsdividerlocations>
+      <dividerlocationd language="beanshell" position="578" />
+    </preferredrecentcommandsdividerlocations>
     <BSFConsoleSearchOptions searchfromcursor="false">
       <recentsearches />
     </BSFConsoleSearchOptions>

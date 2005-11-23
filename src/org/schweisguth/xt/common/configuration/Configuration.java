@@ -1,12 +1,11 @@
 package org.schweisguth.xt.common.configuration;
 
-import org.schweisguth.xt.common.util.logging.Logger;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import org.schweisguth.xt.common.util.logging.Logger;
 
 public class Configuration {
     // Constants
@@ -30,11 +29,13 @@ public class Configuration {
     // Methods:
 
     public String get(Class pClass, String pKey, String pDefault) {
-        return getProperties().getProperty(pClass.getName() + "." + pKey, pDefault);
+        return getProperties().getProperty(pClass.getName() + "." + pKey,
+            pDefault);
     }
 
     public int getInt(Class pClass, String pKey, int pDefault) {
-        String property = getProperties().getProperty(pClass.getName() + "." + pKey);
+        String property =
+            getProperties().getProperty(pClass.getName() + "." + pKey);
         return property == null ? pDefault : Integer.parseInt(property);
     }
 
@@ -48,10 +49,12 @@ public class Configuration {
                 } catch (IOException e) {
                     Logger.global.warning("Couldn't load " + FILE_NAME, e);
                 } finally {
+                    // TODO centralize file closes
                     try {
                         stream.close();
                     } catch (IOException e) {
-                        Logger.global.warning("Couldn't close " + FILE_NAME, e);
+                        Logger.global.warning(
+                            "Couldn't close " + FILE_NAME, e);
                     }
                 }
             } catch (FileNotFoundException e) {
