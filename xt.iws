@@ -119,83 +119,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DrawingStartingTilesStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingstartingtiles/DrawingStartingTilesStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="59" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EndedStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/ended/EndedStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="44" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovingStateTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/moving/MovingStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="45" selection-start="2219" selection-end="2219" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StateImplTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/stateimpl/StateImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="43" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChallengingStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/challenging/ChallengingStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="50" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawingForFirstStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingforfirst/DrawingForFirstStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="54" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawingNewTilesStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingnewtiles/DrawingNewTilesStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="54" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HasCurrentPlayerStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/hascurrentplayer/HasCurrentPlayerStateTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="55" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="JoiningStateTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/joining/JoiningStateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="46" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.0651289">
+            <state line="118" column="0" selection-start="4722" selection-end="4722" vertical-scroll-proportion="0.9023067">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CanExecuteTester.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/base/CanExecuteTester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -531,13 +470,13 @@
   <component name="RestoreUpdateTree" />
   <component name="RunManager">
     <activeType name="Application" />
-    <tempConfiguration selected="true" default="false" name="MovingStateTest.testTakeBackWrongPosition" type="JUnit" factoryName="JUnit">
+    <tempConfiguration selected="true" default="false" name="ApprovingStateTest.testCreate2" type="JUnit" factoryName="JUnit">
       <module name="xt" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.schweisguth.xttest.common.gameimpl.moving" />
-      <option name="MAIN_CLASS_NAME" value="org.schweisguth.xttest.common.gameimpl.moving.MovingStateTest" />
-      <option name="METHOD_NAME" value="testTakeBackWrongPosition" />
+      <option name="PACKAGE_NAME" value="org.schweisguth.xttest.common.gameimpl.approving" />
+      <option name="MAIN_CLASS_NAME" value="org.schweisguth.xttest.common.gameimpl.approving.ApprovingStateTest" />
+      <option name="METHOD_NAME" value="testCreate2" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
@@ -735,11 +674,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="29" width="1366" height="860" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="0" />
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.5067064" order="3" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.3181818" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.3181818" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.52948886" order="5" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="4" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.5504587" order="1" />
@@ -833,20 +772,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/gameimpl/GameImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="21" selection-start="7617" selection-end="7623" vertical-scroll-proportion="0.6092266">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/testutil/BaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="27" selection-start="983" selection-end="983" vertical-scroll-proportion="0.34192672">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/gameimpl/joining/JoiningState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -861,44 +786,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/approving/ApprovingStateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/joining/JoiningStateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="46" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.0651289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/hascurrentplayer/HasCurrentPlayerStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="55" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0651289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingnewtiles/DrawingNewTilesStateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="54" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0651289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingforfirst/DrawingForFirstStateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="54" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0651289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/challenging/ChallengingStateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="50" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.0651289">
           <folding />
         </state>
       </provider>
@@ -910,24 +800,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/moving/MovingStateTest.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/gameimpl/state/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="45" selection-start="2219" selection-end="2219" vertical-scroll-proportion="0.0651289">
+        <state line="16" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="0.17910448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/gameimpl/stateimpl/StateImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="22" selection-start="1300" selection-end="1300" vertical-scroll-proportion="-1.6485753">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingnewtiles/DrawingNewTilesStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="40" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.21192053">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingforfirst/DrawingForFirstStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="45" selection-start="3972" selection-end="3972" vertical-scroll-proportion="0.9205298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/challenging/ChallengingStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="2497" selection-end="2497" vertical-scroll-proportion="0.6092715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/approving/ApprovingStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="3391" selection-end="3391" vertical-scroll-proportion="0.9205298">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/ended/EndedStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="44" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0651289">
+        <state line="24" column="29" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.21192053">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/drawingstartingtiles/DrawingStartingTilesStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="59" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0651289">
+        <state line="44" column="40" selection-start="2239" selection-end="2239" vertical-scroll-proportion="0.8410596">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/moving/MovingStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="0" selection-start="6857" selection-end="6857" vertical-scroll-proportion="0.16553596">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/joining/JoiningStateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="0" selection-start="4722" selection-end="4722" vertical-scroll-proportion="0.9023067">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/base/CanExecuteTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

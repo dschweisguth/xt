@@ -25,25 +25,25 @@ public class DrawingStartingTilesStateTest extends BaseTest {
     }
 
     public void testCreateNoPlayersHaveDrawn() {
-        Game game = new GameImpl(new DrawingStartingTilesState(TWO_PLAYERS));
+        DrawingStartingTilesState state =
+            new DrawingStartingTilesState(TWO_PLAYERS);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new DrawStartingTilesCommand());
-        tester1.doAssert(game, "player1");
-        new CanExecuteTester().doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester1.doAssert(state, "player1");
+        new CanExecuteTester().doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateOnePlayerHasDrawn() {
         StateImpl state = new DrawingStartingTilesState(TWO_PLAYERS,
             new String[] { "", EEEEEEE });
-        Game game = new GameImpl(state);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new DrawStartingTilesCommand());
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testDrawStartingTiles1() {

@@ -37,36 +37,35 @@ public class ApprovingStateTest extends BaseTest {
     }
 
     public void testCreate2() {
-        Game game = new GameImpl(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
+        ApprovingState state =
+            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new ChallengeCommand());
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new ApproveCommand());
         tester2.addTrue(new ChallengeCommand());
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreate3() {
-        ApprovingState state =
-            new ApprovingState(THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII, MOVE_TWO);
+        ApprovingState state = new ApprovingState(
+            THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII, MOVE_TWO);
         state.setApprovals(CollectionUtil.asStickySet("player2"));
-        Game game = new GameImpl(state);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new ChallengeCommand());
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
+        tester2.doAssert(state, "player2");
         CanExecuteTester tester3 = new CanExecuteTester();
         tester3.addTrue(new ApproveCommand());
         tester3.addTrue(new ChallengeCommand());
         tester3.addTrue(new RearrangeRackCommand(0, 1));
-        tester3.doAssert(game, "player3");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester3.doAssert(state, "player3");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testApprove2() {

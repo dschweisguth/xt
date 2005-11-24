@@ -21,12 +21,12 @@ public class EndedStateTest extends BaseTest {
     }
 
     public void testCreate() {
-        Game game = new GameImpl(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
+        EndedState state = new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         CanExecuteTester tester = new CanExecuteTester();
         tester.addTrue(new StartNewGameCommand());
-        tester.doAssert(game, "player1");
-        tester.doAssert(game, "player2");
-        tester.doAssert(game, "observer");
+        tester.doAssert(state, "player1");
+        tester.doAssert(state, "player2");
+        tester.doAssert(state, "observer");
     }
 
     public void testStartNewGame() {

@@ -24,29 +24,29 @@ public class JoiningStateTest extends BaseTest {
     }
 
     public void testCreateNoPlayers() {
-        Game game = new GameImpl(new JoiningState());
+        JoiningState state = new JoiningState();
         CanExecuteTester observerTester = new CanExecuteTester();
         observerTester.addTrue(new JoinCommand());
-        observerTester.doAssert(game, "observer");
+        observerTester.doAssert(state, "observer");
     }
 
     public void testCreateOnePlayer() {
-        Game game = new GameImpl(new JoiningState(new String[] { "player1" }));
-        new CanExecuteTester().doAssert(game, "player1");
+        JoiningState state = new JoiningState(new String[] { "player1" });
+        new CanExecuteTester().doAssert(state, "player1");
         CanExecuteTester observerTester = new CanExecuteTester();
         observerTester.addTrue(new JoinCommand());
-        observerTester.doAssert(game, "observer");
+        observerTester.doAssert(state, "observer");
     }
 
     public void testCreateTwoPlayers() {
-        Game game = new GameImpl(new JoiningState(TWO_PLAYERS));
+        JoiningState state = new JoiningState(TWO_PLAYERS);
         CanExecuteTester tester12 = new CanExecuteTester();
         tester12.addTrue(new StartCommand());
-        tester12.doAssert(game, "player1");
-        tester12.doAssert(game, "player2");
+        tester12.doAssert(state, "player1");
+        tester12.doAssert(state, "player2");
         CanExecuteTester observerTester = new CanExecuteTester();
         observerTester.addTrue(new JoinCommand());
-        observerTester.doAssert(game, "observer");
+        observerTester.doAssert(state, "observer");
     }
 
     public void testJoin1() {
@@ -83,8 +83,6 @@ public class JoiningStateTest extends BaseTest {
 
     }
 
-    // TODO replace these tests with canExecute tests and one test that execute
-    // asserts canExecute
     public void testJoinTwice() {
         JoiningState state = new JoiningState(new String[] { "player1" });
         assertFalse(state.canExecute("player1", new JoinCommand()));

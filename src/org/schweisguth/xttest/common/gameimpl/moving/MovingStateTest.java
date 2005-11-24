@@ -45,42 +45,41 @@ public class MovingStateTest extends BaseTest {
     }
 
     public void testCreate() {
-        Game game = new GameImpl(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 0 }));
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new RearrangeRackCommand(0, 1));
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateOnePlayerPassed() {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setPasses(CollectionUtil.asStickySet("player2"));
-        Game game = new GameImpl(state);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 0 }));
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new EndGameCommand());
         tester1.addTrue(new RearrangeRackCommand(0, 1));
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateOneTransfer() {
         int rackPosition = 0;
         Position boardPosition = new Position(7, 7);
         Transfer transfer = new Transfer(rackPosition, boardPosition);
-        Game game = new GameImpl(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-            new TransferSet(transfer)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(transfer));
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new TransferCommand(new Transfer(1, 7, 8)));
@@ -95,16 +94,16 @@ public class MovingStateTest extends BaseTest {
         tester1.addTrue(new RearrangeRackCommand(1, rackPosition));
         tester1.addTrue(
             new RearrangeBoardCommand(boardPosition, new Position(7, 8)));
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateTwoTransfers() {
-        Game game =
-            new GameImpl(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
+        MovingState state =
+            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 2 }));
@@ -112,43 +111,41 @@ public class MovingStateTest extends BaseTest {
         tester1.addTrue(new FinishCommand());
         tester1.addTrue(
             new RearrangeBoardCommand(new Position(7, 7), new Position(7, 8)));
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateEmptyBoxLid() {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setBoxLid(new BoxLid(""));
-        Game game = new GameImpl(state);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new RearrangeRackCommand(0, 1));
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateBoxLidWithOneTile() {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setBoxLid(new BoxLid("A"));
-        Game game = new GameImpl(state);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 0 }));
         tester1.addFalse(new ExchangeCommand(new int[] { 0, 1 }));
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new RearrangeRackCommand(0, 1));
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testTransfer() {

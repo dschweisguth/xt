@@ -9,12 +9,8 @@ import org.schweisguth.xt.common.util.collection.SetList;
 
 public interface State extends Serializable {
     SetList getPlayers();
-
     Map getRacks();
-
     BoxLid getBoxLid();
-
     Board getBoard();
-
     ScoreSheet getScoreSheet();
 }

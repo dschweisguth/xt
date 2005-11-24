@@ -23,8 +23,8 @@ import org.schweisguth.xt.common.command.SustainChallengeCommand;
 import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.domain.Player;
 import org.schweisguth.xt.common.domain.Position;
-import org.schweisguth.xt.common.game.Game;
 import org.schweisguth.xt.common.game.Request;
+import org.schweisguth.xt.common.gameimpl.stateimpl.StateImpl;
 import org.schweisguth.xt.common.util.collection.ArraySetList;
 import org.schweisguth.xt.common.util.collection.SetList;
 
@@ -66,21 +66,23 @@ public class CanExecuteTester {
         mTrue.add(pCommand);
     }
 
-    public void doAssert(Game pGame, String pPlayer) {
-        Assert.assertNotNull(pGame);
+    public void doAssert(StateImpl pState, String pPlayer) {
+        Assert.assertNotNull(pState);
         Player.assertIsValid(pPlayer);
 
         for (Iterator iterator = mFalse.iterator(); iterator.hasNext();) {
             Command command = (Command) iterator.next();
             Assert.assertFalse(
-                pPlayer + " should not be able to execute " + command + " but can",
-                pGame.canExecute(new Request(pPlayer, command)));
+                pPlayer + " should not be able to execute " + command +
+                    " but can",
+                pState.canExecute(new Request(pPlayer, command)));
         }
         for (Iterator iterator = mTrue.iterator(); iterator.hasNext();) {
             Command command = (Command) iterator.next();
             Assert.assertTrue(
-                pPlayer + " should be able to execute " + command + " but can't",
-                pGame.canExecute(new Request(pPlayer, command)));
+                pPlayer + " should be able to execute " + command +
+                    " but can't",
+                pState.canExecute(new Request(pPlayer, command)));
         }
 
     }

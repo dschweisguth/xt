@@ -31,11 +31,11 @@ public class DrawingForFirstStateTest extends BaseTest {
     }
 
     public void testCreateTwoPlayersNoneHaveDrawn() {
-        Game game = new GameImpl(new DrawingForFirstState(TWO_PLAYERS));
+        DrawingForFirstState state = new DrawingForFirstState(TWO_PLAYERS);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new DrawForFirstCommand());
-        tester1.doAssert(game, "player1");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester1.doAssert(state, "player1");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateTwoPlayersOneHasDrawn() {
@@ -44,12 +44,11 @@ public class DrawingForFirstStateTest extends BaseTest {
         tilesDrawnForFirst.put("player2", null);
         DrawingForFirstState state = new DrawingForFirstState(TWO_PLAYERS);
         state.setTilesDrawnForFirst(tilesDrawnForFirst);
-        Game game = new GameImpl(state);
-        new CanExecuteTester().doAssert(game, "player1");
+        new CanExecuteTester().doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new DrawForFirstCommand());
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testCreateThreePlayersTwoHaveTied() {
@@ -58,13 +57,12 @@ public class DrawingForFirstStateTest extends BaseTest {
         tilesDrawnForFirst.put("player2", null);
         DrawingForFirstState state = new DrawingForFirstState(TWO_PLAYERS);
         state.setTilesDrawnForFirst(tilesDrawnForFirst);
-        Game game = new GameImpl(state);
         CanExecuteTester tester12 = new CanExecuteTester();
         tester12.addTrue(new DrawForFirstCommand());
-        tester12.doAssert(game, "player1");
-        tester12.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "player3");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester12.doAssert(state, "player1");
+        tester12.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "player3");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testDrawForFirst() {

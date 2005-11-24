@@ -32,16 +32,16 @@ public class DrawingNewTilesStateTest extends BaseTest {
     public void testCreate() {
         ScoreSheet expectedScores = new ScoreSheet(TWO_PLAYERS);
         expectedScores.incrementScore(4);
-        Game game = new GameImpl(new DrawingNewTilesState(TWO_PLAYERS,
-            AAAAAAA_EEEEEEE, expectedScores, MOVE_TWO));
+        DrawingNewTilesState state = new DrawingNewTilesState(TWO_PLAYERS,
+            AAAAAAA_EEEEEEE, expectedScores, MOVE_TWO);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new DrawNewTilesCommand());
         tester1.addTrue(new RearrangeRackCommand(2, 3)); // 0, 1 are on board
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testDrawNewTiles() {

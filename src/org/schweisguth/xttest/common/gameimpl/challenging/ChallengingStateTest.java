@@ -34,18 +34,18 @@ public class ChallengingStateTest extends BaseTest {
     }
 
     public void testCreate() {
-        Game game = new GameImpl(
-            new ChallengingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
+        ChallengingState state =
+            new ChallengingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
         CanExecuteTester tester1 = new CanExecuteTester();
         tester1.addTrue(new OverruleChallengeCommand());
         tester1.addTrue(new SustainChallengeCommand());
-        tester1.doAssert(game, "player1");
+        tester1.doAssert(state, "player1");
         CanExecuteTester tester2 = new CanExecuteTester();
         tester2.addTrue(new OverruleChallengeCommand());
         tester2.addTrue(new SustainChallengeCommand());
         tester2.addTrue(new RearrangeRackCommand(0, 1));
-        tester2.doAssert(game, "player2");
-        new CanExecuteTester().doAssert(game, "observer");
+        tester2.doAssert(state, "player2");
+        new CanExecuteTester().doAssert(state, "observer");
     }
 
     public void testOverruleChallenge() {
