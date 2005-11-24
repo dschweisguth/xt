@@ -5,86 +5,59 @@ import javax.swing.Action;
 import org.schweisguth.xt.client.action.CommandAction;
 import org.schweisguth.xt.common.command.Command;
 import org.schweisguth.xt.common.command.JoinCommand;
+import org.schweisguth.xt.common.command.StartNewGameCommand;
 import org.schweisguth.xt.common.game.ListenableGame;
 import org.schweisguth.xt.common.gameimpl.GameImpl;
 import org.schweisguth.xt.common.gameimpl.ended.EndedState;
 import org.schweisguth.xt.common.gameimpl.joining.JoiningState;
+import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 
 public class JoinActionTest extends BaseActionTest {
     protected Command createCommand() {
         return new JoinCommand();
     }
 
-    public void testEarly() {
-        assertEnabled(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            false, false, false);
+    public void testCreateDisabled() {
+        assertEnabled(new JoiningState(new String[] { "player1" }), true);
     }
 
-    public void testBefore() {
+    public void testCreateEnabled() {
         assertEnabled(new JoiningState(), true);
     }
 
-    public void testBeforeMax() {
-        assertEnabled(new JoiningState(THREE_PLAYERS), true);
-    }
-
-    public void testAfter1() {
-        assertEnabled(new JoiningState(new String[] { "player1" }), false, true);
-    }
-
-    public void testAfter2() {
-        assertEnabled(new JoiningState(TWO_PLAYERS), false, false, true);
-    }
-
-    public void testAfterMax() {
-        assertEnabled(
-            new JoiningState(
-                new String[] { "player1", "player2", "player3", "player4" }),
-            false);
-    }
-
-    public void testExecute1() throws RemoteException {
+    public void testExecuteDisablesSelf() throws RemoteException {
         ListenableGame game = new GameImpl(new JoiningState());
-        CommandAction action1 = createAction(game, "player1");
-        Action observerAction = createAction(game, "observer");
-        action1.execute();
+        CommandAction action = createAction(game, "player1");
+        action.execute();
 
-        assertFalse(action1.isEnabled());
-        assertTrue(observerAction.isEnabled());
+        assertFalse(action.isEnabled());
 
     }
 
-    public void testExecute2() throws RemoteException {
-        ListenableGame game = new GameImpl(new JoiningState());
-        CommandAction action1 = createAction(game, "player1");
-        CommandAction action2 = createAction(game, "player2");
-        Action observerAction = createAction(game, "observer");
-        action1.execute();
-        action2.execute();
+    public void testExecuteDisablesOther() throws RemoteException {
+        ListenableGame game = new GameImpl(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
+        Action action = new CommandAction(new LocalClient(game, "player2"), new StartNewGameCommand());
+        new CommandAction(new LocalClient(game, "player1"), new StartNewGameCommand()).execute();
 
-        assertFalse(action1.isEnabled());
-        assertFalse(action2.isEnabled());
-        assertTrue(observerAction.isEnabled());
+        assertFalse(action.isEnabled());
 
     }
 
-    public void testExecuteMax() throws RemoteException {
+    public void testExecuteNoEffectOnOther() throws RemoteException {
         ListenableGame game = new GameImpl(new JoiningState());
-        CommandAction action1 = createAction(game, "player1");
-        CommandAction action2 = createAction(game, "player2");
-        CommandAction action3 = createAction(game, "player3");
-        CommandAction action4 = createAction(game, "player4");
-        Action observerAction = createAction(game, "observer");
-        action1.execute();
-        action2.execute();
-        action3.execute();
-        action4.execute();
+        Action action = createAction(game, "player2");
+        createAction(game, "player1").execute();
 
-        assertFalse(action1.isEnabled());
-        assertFalse(action2.isEnabled());
-        assertFalse(action3.isEnabled());
-        assertFalse(action4.isEnabled());
-        assertFalse(observerAction.isEnabled());
+        assertTrue(action.isEnabled());
+
+    }
+
+    public void testExecuteEnablesOther() throws RemoteException {
+        ListenableGame game = new GameImpl(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
+        Action action = createAction(game, "player2");
+        new CommandAction(new LocalClient(game, "player1"), new StartNewGameCommand()).execute();
+
+        assertTrue(action.isEnabled());
 
     }
 

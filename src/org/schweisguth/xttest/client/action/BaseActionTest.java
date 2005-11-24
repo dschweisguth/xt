@@ -51,7 +51,7 @@ public abstract class BaseActionTest extends BaseTest {
         assertEquals(pExpectedEnabled, action.isEnabled());
     }
 
-    private CommandAction createAction(Client pClient) {
+    protected CommandAction createAction(Client pClient) {
         return new CommandAction(pClient, createCommand());
     }
 
