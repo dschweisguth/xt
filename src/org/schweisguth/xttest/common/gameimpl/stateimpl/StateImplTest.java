@@ -19,8 +19,6 @@ import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
 
 public class StateImplTest extends BaseTest {
-    // TODO separate tests of GameImpl from tests of StateImpl
-
     public void testExecute() {
         ListenableGame game = new GameImpl(new JoiningState());
         TestClient client1 = new TestClient(game, "player1");
