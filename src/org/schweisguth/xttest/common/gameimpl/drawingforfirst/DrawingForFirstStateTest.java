@@ -13,21 +13,21 @@ import org.schweisguth.xt.common.gameimpl.GameImpl;
 import org.schweisguth.xt.common.gameimpl.drawingforfirst.DrawingForFirstState;
 import org.schweisguth.xt.common.gameimpl.drawingforfirst.DrewForFirstEvent;
 import org.schweisguth.xt.common.gameimpl.drawingstartingtiles.DrawingStartingTilesState;
-import org.schweisguth.xt.common.gameimpl.joining.JoiningState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xt.common.util.collection.HashStickyMap;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class DrawingForFirstStateTest extends BaseGameStateTest {
+public class DrawingForFirstStateTest extends BaseTest {
     public void testSerializable() throws Exception {
         Map tilesDrawnForFirst = new HashStickyMap();
         tilesDrawnForFirst.put("player1", Tile.get('A'));
         tilesDrawnForFirst.put("player2", null);
         DrawingForFirstState state = new DrawingForFirstState(TWO_PLAYERS);
-        assertIsSerializable(new GameImpl(state));
+        state.setTilesDrawnForFirst(tilesDrawnForFirst);
+        assertIsSerializable(state);
     }
 
     public void testCreateTwoPlayersNoneHaveDrawn() {
@@ -193,23 +193,13 @@ public class DrawingForFirstStateTest extends BaseGameStateTest {
 
     }
 
-    public void testDrawForFirstEarly() {
-        assertWillFail(new JoiningState(TWO_PLAYERS),
-            "player1", new DrawForFirstCommand());
-    }
-
     public void testDrawForFirstTwice() {
         DrawingForFirstState state = new DrawingForFirstState(TWO_PLAYERS);
         Map tilesDrawnForFirst = new HashStickyMap();
         tilesDrawnForFirst.put("player1", Tile.get('A'));
         tilesDrawnForFirst.put("player2", null);
         state.setTilesDrawnForFirst(tilesDrawnForFirst);
-        assertWillFail(state, "player1", new DrawForFirstCommand());
-    }
-
-    public void testDrawForFirstLate() {
-        assertWillFail(new DrawingStartingTilesState(TWO_PLAYERS),
-            "player1", new DrawForFirstCommand());
+        assertFalse(state.canExecute("player1", new DrawForFirstCommand()));
     }
 
 }

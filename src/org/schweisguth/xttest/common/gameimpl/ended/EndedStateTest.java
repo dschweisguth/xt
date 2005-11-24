@@ -11,14 +11,13 @@ import org.schweisguth.xt.common.gameimpl.ended.EndedState;
 import org.schweisguth.xt.common.gameimpl.ended.StartedNewGameEvent;
 import org.schweisguth.xt.common.gameimpl.joining.JoiningState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class EndedStateTest extends BaseGameStateTest {
+public class EndedStateTest extends BaseTest {
     public void testSerializable() throws Exception {
-        assertIsSerializable(
-            new GameImpl(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE)));
+        assertIsSerializable(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
     }
 
     public void testCreate() {

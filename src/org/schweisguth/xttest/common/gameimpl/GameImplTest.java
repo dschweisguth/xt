@@ -11,10 +11,14 @@ import org.schweisguth.xt.common.gameimpl.LoggedInEvent;
 import org.schweisguth.xt.common.gameimpl.LoggedOutEvent;
 import org.schweisguth.xt.common.gameimpl.joining.JoiningState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class GameImplTest extends BaseGameStateTest {
+public class GameImplTest extends BaseTest {
+    public void testSerializable() throws Exception {
+        assertIsSerializable(new GameImpl(new JoiningState()));
+    }
+
     public void testLogIn() {
         ListenableGame game = new GameImpl(new JoiningState());
         TestClient client1 = new TestClient(game, "player1");

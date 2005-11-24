@@ -23,17 +23,17 @@ import org.schweisguth.xt.common.gameimpl.drawingnewtiles.DrawingNewTilesState;
 import org.schweisguth.xt.common.gameimpl.ended.EndedState;
 import org.schweisguth.xt.common.gameimpl.moving.MovingState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class ApprovingStateTest extends BaseGameStateTest {
+public class ApprovingStateTest extends BaseTest {
     public void testSerializable() throws Exception {
         ApprovingState state =
             new ApprovingState(THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII, MOVE_TWO);
         state.setApprovals(CollectionUtil.asStickySet("player2"));
-        assertIsSerializable(new GameImpl(state));
+        assertIsSerializable(state);
     }
 
     public void testCreate2() {
@@ -215,27 +215,9 @@ public class ApprovingStateTest extends BaseGameStateTest {
     }
 
     public void testApproveSelf() {
-        assertWillFail(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO),
-            "player1", new ApproveCommand());
-    }
-
-    public void testApproveTwice1() {
-        ScoreSheet scores = new ScoreSheet(TWO_PLAYERS);
-        scores.incrementScore(1);
-        assertWillFail(
-            new DrawingNewTilesState(TWO_PLAYERS, AAAAAAA_EEEEEEE, scores,
-                MOVE_TWO),
-            "player1", new ApproveCommand());
-    }
-
-    public void testApproveTwice2() {
-        ScoreSheet scores = new ScoreSheet(TWO_PLAYERS);
-        scores.incrementScore(1);
-        assertWillFail(
-            new DrawingNewTilesState(TWO_PLAYERS, AAAAAAA_EEEEEEE, scores,
-                MOVE_TWO),
-            "player2", new ApproveCommand());
+        ApprovingState state =
+            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
+        assertFalse(state.canExecute("player1", new ApproveCommand()));
     }
 
     public void testChallenge() {

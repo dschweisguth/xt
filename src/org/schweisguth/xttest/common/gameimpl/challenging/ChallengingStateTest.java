@@ -22,15 +22,15 @@ import org.schweisguth.xt.common.gameimpl.drawingnewtiles.DrawingNewTilesState;
 import org.schweisguth.xt.common.gameimpl.ended.EndedState;
 import org.schweisguth.xt.common.gameimpl.moving.MovingState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class ChallengingStateTest extends BaseGameStateTest {
+public class ChallengingStateTest extends BaseTest {
     public void testSerializable() throws Exception {
-        assertIsSerializable(new GameImpl(
-            new ChallengingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO)));
+        assertIsSerializable(
+            new ChallengingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
     }
 
     public void testCreate() {

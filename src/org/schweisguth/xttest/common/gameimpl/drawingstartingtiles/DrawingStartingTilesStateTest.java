@@ -9,21 +9,19 @@ import org.schweisguth.xt.common.game.Game;
 import org.schweisguth.xt.common.game.ListenableGame;
 import org.schweisguth.xt.common.game.Request;
 import org.schweisguth.xt.common.gameimpl.GameImpl;
-import org.schweisguth.xt.common.gameimpl.drawingforfirst.DrawingForFirstState;
 import org.schweisguth.xt.common.gameimpl.drawingstartingtiles.DrawingStartingTilesState;
 import org.schweisguth.xt.common.gameimpl.drawingstartingtiles.DrewStartingTilesEvent;
 import org.schweisguth.xt.common.gameimpl.moving.MovingState;
 import org.schweisguth.xt.common.gameimpl.stateimpl.StateImpl;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class DrawingStartingTilesStateTest extends BaseGameStateTest {
+public class DrawingStartingTilesStateTest extends BaseTest {
     public void testSerializable() throws Exception {
-        StateImpl state = new DrawingStartingTilesState(
-            TWO_PLAYERS, new String[] { "", EEEEEEE });
-        assertIsSerializable(new GameImpl(state));
+        assertIsSerializable(new DrawingStartingTilesState(
+            TWO_PLAYERS, new String[] { "", EEEEEEE }));
     }
 
     public void testCreateNoPlayersHaveDrawn() {
@@ -90,26 +88,18 @@ public class DrawingStartingTilesStateTest extends BaseGameStateTest {
 
     }
 
-    public void testDrawStartingTilesEarly() {
-        assertWillFail(new DrawingForFirstState(TWO_PLAYERS),
-            "player1", new DrawStartingTilesCommand());
-    }
-
     public void testDrawStartingTilesWrongPlayer() {
-        assertWillFail(new DrawingStartingTilesState(TWO_PLAYERS),
-            "player2", new DrawStartingTilesCommand());
+        DrawingStartingTilesState state =
+            new DrawingStartingTilesState(TWO_PLAYERS);
+        assertFalse(
+            state.canExecute("player2", new DrawStartingTilesCommand()));
     }
 
     public void testDrawStartingTilesTwice() {
-        assertWillFail(
-            new DrawingStartingTilesState(TWO_PLAYERS,
-                new String[] { "", EEEEEEE }),
-            "player2", new DrawStartingTilesCommand());
-    }
-
-    public void testDrawStartingTilesLate() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player1", new DrawStartingTilesCommand());
+        DrawingStartingTilesState state = new DrawingStartingTilesState(
+            TWO_PLAYERS, new String[] { "", EEEEEEE });
+        assertFalse(
+            state.canExecute("player2", new DrawStartingTilesCommand()));
     }
 
 }

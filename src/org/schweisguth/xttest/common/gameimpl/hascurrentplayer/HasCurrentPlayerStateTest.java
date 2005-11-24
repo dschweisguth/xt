@@ -11,11 +11,11 @@ import org.schweisguth.xt.common.gameimpl.GameImpl;
 import org.schweisguth.xt.common.gameimpl.hascurrentplayer.RearrangedRackEvent;
 import org.schweisguth.xt.common.gameimpl.moving.MovingState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class HasCurrentPlayerStateTest extends BaseGameStateTest {
+public class HasCurrentPlayerStateTest extends BaseTest {
     public void testRearrangeRackCurrentPlayer() {
         ListenableGame game = new GameImpl(
             new MovingState(TWO_PLAYERS, new String[] { "A", EEEEEEE }));
@@ -91,8 +91,9 @@ public class HasCurrentPlayerStateTest extends BaseGameStateTest {
     }
 
     public void testRearrangeRackBadArgs() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player1", new RearrangeRackCommand(0, 0));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(
+            state.canExecute("player1", new RearrangeRackCommand(0, 0)));
     }
 
 }

@@ -11,7 +11,6 @@ import org.schweisguth.xt.common.command.RearrangeRackCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
 import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
-import org.schweisguth.xt.common.domain.Axis;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Position;
@@ -24,7 +23,6 @@ import org.schweisguth.xt.common.game.ListenableGame;
 import org.schweisguth.xt.common.game.Request;
 import org.schweisguth.xt.common.gameimpl.GameImpl;
 import org.schweisguth.xt.common.gameimpl.approving.ApprovingState;
-import org.schweisguth.xt.common.gameimpl.drawingstartingtiles.DrawingStartingTilesState;
 import org.schweisguth.xt.common.gameimpl.ended.EndedState;
 import org.schweisguth.xt.common.gameimpl.hastransferset.TransferredEvent;
 import org.schweisguth.xt.common.gameimpl.moving.EndedGameEvent;
@@ -36,14 +34,14 @@ import org.schweisguth.xt.common.gameimpl.moving.RearrangedBoardEvent;
 import org.schweisguth.xt.common.gameimpl.moving.TookBackEvent;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xt.common.util.collection.HashStickySet;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class MovingStateTest extends BaseGameStateTest {
+public class MovingStateTest extends BaseTest {
     public void testSerializable() throws Exception {
-        assertIsSerializable(new GameImpl(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO)));
+        assertIsSerializable(
+            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
     }
 
     public void testCreate() {
@@ -195,41 +193,25 @@ public class MovingStateTest extends BaseGameStateTest {
 
     }
 
-    public void testTransferEarly1() {
-        assertWillFail(new DrawingStartingTilesState(TWO_PLAYERS),
-            "player1", new TransferCommand(new Transfer(0, 0, 0)));
-    }
-
-    public void testTransferEarly2() {
-        assertWillFail(
-            new DrawingStartingTilesState(TWO_PLAYERS,
-                new String[] { "", EEEEEEE }),
-            "player2", new TransferCommand(new Transfer(0, 0, 0)));
-    }
-
     public void testTransferWrongPlayer() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player2", new TransferCommand(new Transfer(0, 0, 0)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute(
+            "player2", new TransferCommand(new Transfer(0, 0, 0))));
     }
 
     public void testTransferBadRackPosition() {
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, new String[] { "-AAAAAA", EEEEEEE }),
-            "player1", new TransferCommand(new Transfer(0, 0, 0)));
+        MovingState state =
+            new MovingState(TWO_PLAYERS, new String[] { "-AAAAAA", EEEEEEE });
+        assertFalse(state.canExecute(
+            "player1", new TransferCommand(new Transfer(0, 0, 0))));
     }
 
     public void testTransferBadBoardPosition() {
         final Position boardPosition = new Position(0, 0);
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-                new TransferSet(0, boardPosition)),
-            "player1", new TransferCommand(new Transfer(1, boardPosition)));
-    }
-
-    public void testTransferLate() {
-        assertWillFail(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO),
-            "player1", new TransferCommand(new Transfer(2, 9, 7)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(0, boardPosition));
+        assertFalse(state.canExecute(
+            "player1", new TransferCommand(new Transfer(1, boardPosition))));
     }
 
     public void testMoveBoard() {
@@ -254,23 +236,17 @@ public class MovingStateTest extends BaseGameStateTest {
 
     public void testMoveBoardWrongPlayer() {
         final Position source = new Position(0, 0);
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-                new TransferSet(0, source)),
-            "player2", new RearrangeBoardCommand(source, new Position(1, 0)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(0, source));
+        assertFalse(state.canExecute(
+            "player2", new RearrangeBoardCommand(source, new Position(1, 0))));
     }
 
     public void testMoveBoardBadArgs() {
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE), "player1",
-            new RearrangeBoardCommand(new Position(0, 0), new Position(1, 0)));
-    }
-
-    public void testMoveBoardLate() {
-        assertWillFail(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO),
-            "player1",
-            new RearrangeBoardCommand(new Position(8, 7), new Position(7, 6)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute("player1",
+            new RearrangeBoardCommand(
+                new Position(0, 0), new Position(1, 0))));
     }
 
     public void testTakeBack() {
@@ -333,35 +309,25 @@ public class MovingStateTest extends BaseGameStateTest {
     }
 
     public void testTakeBackEarly() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player1", new TakeBackCommand(new Transfer(0, 0, 0)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute(
+            "player1", new TakeBackCommand(new Transfer(0, 0, 0))));
     }
 
     public void testTakeBackWrongPlayer() {
         final Transfer transfer = new Transfer(0, 0, 0);
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-                new TransferSet(transfer)),
-            "player2", new TakeBackCommand(transfer));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(transfer));
+        assertFalse(
+            state.canExecute("player2", new TakeBackCommand(transfer)));
     }
 
     public void testTakeBackWrongPosition() {
         final int rackPosition = 0;
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-                new TransferSet(rackPosition, 0, 0)),
-            "player1", new TakeBackCommand(new Transfer(rackPosition, 1, 0)));
-    }
-
-    public void testTakeBackLate() {
-        final int rackPosition = 0;
-        final Position boardPosition = new Position(7, 7);
-        assertWillFail(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-                new TransferSet(new int[] { rackPosition, 1 }, boardPosition,
-                    Axis.X)),
-            "player1",
-            new TakeBackCommand(new Transfer(rackPosition, boardPosition)));
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(rackPosition, 0, 0));
+        assertFalse(state.canExecute(
+            "player1", new TakeBackCommand(new Transfer(rackPosition, 1, 0))));
     }
 
     public void testFinish() {
@@ -382,32 +348,20 @@ public class MovingStateTest extends BaseGameStateTest {
     }
 
     public void testFinishEarly() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player1", new FinishCommand());
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute("player1", new FinishCommand()));
     }
 
     public void testFinishWrongPlayer() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO),
-            "player2", new FinishCommand());
+        MovingState state =
+            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
+        assertFalse(state.canExecute("player2", new FinishCommand()));
     }
 
     public void testFinishBadBoard() {
-        assertWillFail(
-            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-                new TransferSet(0, 0, 0)),
-            "player1", new FinishCommand());
-    }
-
-    public void testFinishTwice1() {
-        assertWillFail(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO),
-            "player1", new FinishCommand());
-    }
-
-    public void testFinishTwice2() {
-        assertWillFail(
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO),
-            "player2", new FinishCommand());
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(0, 0, 0));
+        assertFalse(state.canExecute("player1", new FinishCommand()));
     }
 
     public void testExchange1() {
@@ -525,8 +479,8 @@ public class MovingStateTest extends BaseGameStateTest {
     }
 
     public void testPassWrongPlayer() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player2", new PassCommand());
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute("player2", new PassCommand()));
     }
 
     public void testEndGame() {
@@ -567,33 +521,26 @@ public class MovingStateTest extends BaseGameStateTest {
     }
 
     public void testEndGameEarly1() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player1", new EndGameCommand());
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute("player1", new EndGameCommand()));
     }
 
     public void testEndGameEarly2() {
-        assertWillFail(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE),
-            "player2", new EndGameCommand());
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute("player2", new EndGameCommand()));
     }
 
     public void testEndGameEarly3() {
         MovingState state =
             new MovingState(THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII);
         state.setPasses(CollectionUtil.asStickySet("player3"));
-        assertWillFail(state, "player1", new EndGameCommand());
-    }
-
-    public void testEndGameEarlyAfterMove() {
-        ApprovingState state =
-            new ApprovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
-        state.setApprovals(CollectionUtil.asStickySet("player1"));
-        assertWillFail(state, "player1", new EndGameCommand());
+        assertFalse(state.canExecute("player1", new EndGameCommand()));
     }
 
     public void testEndGameWrongPlayer() {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setPasses(new HashStickySet(Arrays.asList(TWO_PLAYERS)));
-        assertWillFail(state, "player2", new EndGameCommand());
+        assertFalse(state.canExecute("player2", new EndGameCommand()));
     }
 
 }

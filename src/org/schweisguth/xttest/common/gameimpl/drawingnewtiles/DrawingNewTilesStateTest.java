@@ -16,17 +16,17 @@ import org.schweisguth.xt.common.gameimpl.drawingnewtiles.DrawingNewTilesState;
 import org.schweisguth.xt.common.gameimpl.drawingnewtiles.DrewNewTilesEvent;
 import org.schweisguth.xt.common.gameimpl.moving.MovingState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class DrawingNewTilesStateTest extends BaseGameStateTest {
+public class DrawingNewTilesStateTest extends BaseTest {
     public void testSerializable() throws Exception {
         ScoreSheet expectedScores = new ScoreSheet(TWO_PLAYERS);
         expectedScores.incrementScore(4);
         DrawingNewTilesState state = new DrawingNewTilesState(
             TWO_PLAYERS, AAAAAAA_EEEEEEE, expectedScores, MOVE_TWO);
-        assertIsSerializable(new GameImpl(state));
+        assertIsSerializable(state);
     }
 
     public void testCreate() {

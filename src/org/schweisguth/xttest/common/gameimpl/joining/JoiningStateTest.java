@@ -13,15 +13,14 @@ import org.schweisguth.xt.common.gameimpl.joining.JoinedEvent;
 import org.schweisguth.xt.common.gameimpl.joining.JoiningState;
 import org.schweisguth.xt.common.gameimpl.joining.StartedEvent;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
-import org.schweisguth.xttest.common.gameimpl.base.BaseGameStateTest;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
+import org.schweisguth.xttest.testutil.BaseTest;
 
-public class JoiningStateTest extends BaseGameStateTest {
+public class JoiningStateTest extends BaseTest {
     public void testSerializable() throws Exception {
-        assertIsSerializable(
-            new GameImpl(new JoiningState(new String[] { "player1" })));
+        assertIsSerializable(new JoiningState(new String[] { "player1" }));
     }
 
     public void testCreateNoPlayers() {
@@ -87,20 +86,14 @@ public class JoiningStateTest extends BaseGameStateTest {
     // TODO replace these tests with canExecute tests and one test that execute
     // asserts canExecute
     public void testJoinTwice() {
-        assertWillFail(new JoiningState(new String[] { "player1" }),
-            "player1", new JoinCommand());
+        JoiningState state = new JoiningState(new String[] { "player1" });
+        assertFalse(state.canExecute("player1", new JoinCommand()));
     }
 
     public void testJoinMaxPlusOne() {
-        assertWillFail(
-            new JoiningState(
-                new String[] { "player1", "player2", "player3", "player4" }),
-            "player5", new JoinCommand());
-    }
-
-    public void testJoinLate() {
-        assertWillFail(new DrawingForFirstState(TWO_PLAYERS),
-            "player3", new JoinCommand());
+        JoiningState state = new JoiningState(
+            new String[] { "player1", "player2", "player3", "player4" });
+        assertFalse(state.canExecute("player5", new JoinCommand()));
     }
 
     public void testStart() {
@@ -109,7 +102,8 @@ public class JoiningStateTest extends BaseGameStateTest {
         final Command command = new StartCommand();
         client1.execute(command);
 
-        Game expectedGame = new GameImpl(new DrawingForFirstState(TWO_PLAYERS));
+        Game expectedGame =
+            new GameImpl(new DrawingForFirstState(TWO_PLAYERS));
         assertEquals(expectedGame, game);
 
         Event event = new StartedEvent(expectedGame,
@@ -119,13 +113,8 @@ public class JoiningStateTest extends BaseGameStateTest {
     }
 
     public void testStartEarly() {
-        assertWillFail(new JoiningState(new String[] { "player1" }),
-            "player1", new StartCommand());
-    }
-
-    public void testStartLate() {
-        assertWillFail(new DrawingForFirstState(TWO_PLAYERS),
-            "player1", new StartCommand());
+        JoiningState state = new JoiningState(new String[] { "player1" });
+        assertFalse(state.canExecute("player1", new StartCommand()));
     }
 
 }
