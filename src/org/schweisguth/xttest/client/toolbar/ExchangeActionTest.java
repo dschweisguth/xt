@@ -179,7 +179,6 @@ public class ExchangeActionTest extends BaseTest {
 
     private static void assertEnabled(ListenableGame pGame, String pPlayer,
         MockSeatController pSeatController, boolean pEnabled)
-
     {
         LocalClient client = new LocalClient(pGame, pPlayer);
         Action action = new ExchangeAction(client, pSeatController);
