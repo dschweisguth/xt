@@ -32,8 +32,7 @@ public class ChallengingState extends HasTransferSetStateImpl {
     public ChallengingState(String[] pPlayers, String[] pRacks, Board pBoard,
         ScoreSheet pScores, int pCurrentPlayerIndex, TransferSet pTransferSet) {
         super(pPlayers, pRacks, pBoard, pScores, pCurrentPlayerIndex);
-        execute(getCurrentPlayer(),
-            new TransferSetCommand(pTransferSet));
+        execute(getCurrentPlayer(), new TransferSetCommand(pTransferSet));
         assertPostConditions();
     }
 
