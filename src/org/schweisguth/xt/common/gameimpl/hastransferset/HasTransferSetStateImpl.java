@@ -65,7 +65,6 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
 
     // Methods: commands for subclasses
 
-    // TODO eliminate this?
     protected boolean canExecute(String pPlayer,
         TransferAnythingCommand pCommand) {
         return isCurrent(pPlayer);
