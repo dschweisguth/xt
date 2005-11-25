@@ -1,9 +1,12 @@
 package org.schweisguth.xttest.common.gameimpl.stateimpl;
 
+import java.rmi.RemoteException;
+import org.schweisguth.xt.client.server.Client;
 import org.schweisguth.xt.common.command.ChatCommand;
 import org.schweisguth.xt.common.command.Command;
-import org.schweisguth.xt.common.command.EndGameCommand;
+import org.schweisguth.xt.common.command.DrawForFirstCommand;
 import org.schweisguth.xt.common.command.JoinCommand;
+import org.schweisguth.xt.common.command.StartCommand;
 import org.schweisguth.xt.common.game.Event;
 import org.schweisguth.xt.common.game.Game;
 import org.schweisguth.xt.common.game.ListenableGame;
@@ -19,6 +22,24 @@ import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
 
 public class StateImplTest extends BaseTest {
+    public void testCanExecuteTrue() throws RemoteException {
+        ListenableGame game = new GameImpl(new JoiningState());
+        Client client = new LocalClient(game, "player1");
+        assertTrue(client.canExecute(new JoinCommand()));
+    }
+
+    public void testCanExecuteFalse() throws RemoteException {
+        ListenableGame game = new GameImpl(new JoiningState());
+        Client client = new LocalClient(game, "player1");
+        assertFalse(client.canExecute(new StartCommand()));
+    }
+
+    public void testCanExecuteWrongState() throws RemoteException {
+        ListenableGame game = new GameImpl(new JoiningState());
+        Client client = new LocalClient(game, "player1");
+        assertFalse(client.canExecute(new DrawForFirstCommand()));
+    }
+
     public void testExecute() {
         ListenableGame game = new GameImpl(new JoiningState());
         TestClient client1 = new TestClient(game, "player1");
@@ -36,7 +57,8 @@ public class StateImplTest extends BaseTest {
 
     public void testExecuteCanExecuteFalse() {
         try {
-            ListenableGame game = new GameImpl(new JoiningState(new String[] { "player1" }));
+            ListenableGame game =
+                new GameImpl(new JoiningState(new String[] { "player1" }));
             LocalClient client = new LocalClient(game, "player1");
             client.execute(new JoinCommand());
         } catch (AssertionFailedError e) {
@@ -49,7 +71,7 @@ public class StateImplTest extends BaseTest {
         try {
             ListenableGame game = new GameImpl(new JoiningState());
             LocalClient client = new LocalClient(game, "player1");
-            client.execute(new EndGameCommand());
+            client.execute(new DrawForFirstCommand());
         } catch (AssertionFailedError e) {
             return;
         }
