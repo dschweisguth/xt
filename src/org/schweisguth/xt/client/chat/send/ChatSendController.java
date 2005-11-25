@@ -37,7 +37,7 @@ public class ChatSendController {
 
     }
 
-    public JComponent getView() {
+    public ChatSendView getView() {
         return mView;
     }
 

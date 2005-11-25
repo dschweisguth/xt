@@ -17,6 +17,7 @@ public class ClientSuite {
             suite.addTest(ToolBarSuite.suite());
             suite.addTestSuite(BoxLidTest.class);
             suite.addTestSuite(ChatDisplayTest.class);
+            suite.addTestSuite(ChatSendTest.class);
             suite.addTestSuite(SeatingControllerTest.class);
             return suite;
         } catch (Throwable e) {
