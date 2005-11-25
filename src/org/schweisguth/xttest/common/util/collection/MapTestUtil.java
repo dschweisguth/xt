@@ -9,13 +9,6 @@ import org.schweisguth.xt.common.util.collection.StickyMap;
 import org.schweisguth.xt.common.util.collection.StickySetMap;
 
 class MapTestUtil {
-    // Constructors
-
-    private MapTestUtil() {
-    }
-
-    // Methods
-
     public static void testStickyPutOK1(StickyMap pSubject) {
         pSubject.put("key1", "value1");
         Map expected = new HashMap();
@@ -46,11 +39,10 @@ class MapTestUtil {
         Map subjectBeforePut = new HashMap(pSubject);
         try {
             pSubject.put("key1", "value2");
+            Assert.fail();
         } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePut, pSubject);
-            return;
         }
-        Assert.fail();
     }
 
     public static void testStickyPutAllOK1(StickyMap pSubject) {
@@ -83,11 +75,10 @@ class MapTestUtil {
         source.put("key1", "value2");
         try {
             pSubject.putAll(source);
+            Assert.fail();
         } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePutAll, pSubject);
-            return;
         }
-        Assert.fail();
     }
 
     public static void testSetPutOK1(SetMap pSubject) {
@@ -111,11 +102,10 @@ class MapTestUtil {
         Map subjectBeforePut = new HashMap(pSubject);
         try {
             pSubject.put("key2", "value1");
+            Assert.fail();
         } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePut, pSubject);
-            return;
         }
-        Assert.fail();
     }
 
     public static void testSetPutAllOK1(SetMap pSubject) {
@@ -140,11 +130,10 @@ class MapTestUtil {
         source.put("key2", "value1");
         try {
             pSubject.putAll(source);
+            Assert.fail();
         } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePutAll, pSubject);
-            return;
         }
-        Assert.fail();
     }
 
     public static void testSetPutAllDuplicate2(SetMap pSubject) {
@@ -154,11 +143,13 @@ class MapTestUtil {
         source.put("key2", "value1");
         try {
             pSubject.putAll(source);
+            Assert.fail();
         } catch (DuplicateElementException e) {
             Assert.assertEquals(subjectBeforePutAll, pSubject);
-            return;
         }
-        Assert.fail();
+    }
+
+    private MapTestUtil() {
     }
 
 }

@@ -41,11 +41,10 @@ public class ClientTest extends TestCase {
         Logger.global.severe("The following error is expected:");
         try {
             getClient().execute(new StartCommand());
+            fail();
         } catch (RemoteException e) {
             assertEquals(AssertionFailedError.class, e.detail.getClass());
-            return;
         }
-        fail();
     }
 
     public void testAddListener() throws Exception {

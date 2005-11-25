@@ -11,19 +11,17 @@ public class HashStickySetTest extends TestCase {
     public void testCreateCollectionNull() {
         try {
             new HashStickySet(null);
+            fail();
         } catch (NullPointerException e) {
-            return;
         }
-        fail();
     }
 
     public void testCreateCollectionBad() {
         try {
             new HashStickySet(Arrays.asList(new String[] { "", "" }));
+            fail();
         } catch (DuplicateElementException e) {
-            return;
         }
-        fail();
     }
 
     public void testAddBad() {
@@ -31,10 +29,9 @@ public class HashStickySetTest extends TestCase {
         set.add("");
         try {
             set.add("");
+            fail();
         } catch (DuplicateElementException e) {
-            return;
         }
-        fail();
     }
 
     public void testAddAllBad() {
@@ -42,10 +39,9 @@ public class HashStickySetTest extends TestCase {
         set.add("");
         try {
             set.addAll(CollectionUtil.asList(""));
+            fail();
         } catch (DuplicateElementException e) {
-            return;
         }
-        fail();
     }
 
 }

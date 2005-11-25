@@ -11,38 +11,34 @@ public class ArrayListSetListTest extends TestCase {
     public void testCreateArrayNull() {
         try {
             new ArraySetList((Object[]) null);
+            fail();
         } catch (NullPointerException e) {
-            return;
         }
-        fail();
     }
 
     public void testCreateArrayBad() {
         try {
             new ArraySetList(new String[] { "", "" });
+            fail();
         } catch (DuplicateElementException e) {
-            return;
         }
-        fail();
     }
 
     public void testAddBad() {
         try {
             new ArraySetList(new String[] { "" }).add("");
+            fail();
         } catch (DuplicateElementException e) {
-            return;
         }
-        fail();
     }
 
     public void testAddAllBad() {
         List addend = CollectionUtil.asList("");
         try {
             new ArraySetList(new String[] { "" }).addAll(addend);
+            fail();
         } catch (DuplicateElementException e) {
-            return;
         }
-        fail();
     }
 
     public void testEqualsList() {

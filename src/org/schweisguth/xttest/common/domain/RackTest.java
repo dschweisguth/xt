@@ -32,10 +32,9 @@ public class RackTest extends TestCase {
         Rack rack = new Rack("A");
         try {
             rack.add(Tile.get('A'), 0);
+            fail();
         } catch (AssertionFailedError e) {
-            return;
         }
-        fail();
     }
 
     public void testAddList() {
@@ -49,10 +48,9 @@ public class RackTest extends TestCase {
         Rack rack = new Rack("NNNNNNN");
         try {
             rack.add(Arrays.asList(new Tile[] { Tile.get('Q') }));
+            fail();
         } catch (AssertionFailedError e) {
-            return;
         }
-        fail();
     }
 
     public void testCanMoveTrueToEmpty() {
@@ -86,20 +84,18 @@ public class RackTest extends TestCase {
     public void testMoveBad() {
         try {
             new Rack().move(0, 1);
+            fail();
         } catch (AssertionFailedError e) {
-            return;
         }
-        fail();
     }
 
     public void testRemoveTile0() {
         Rack rack = new Rack();
         try {
             rack.remove(0);
+            fail();
         } catch (AssertionFailedError e) {
-            return;
         }
-        fail();
     }
 
     public void testRemoveTile1() {
