@@ -66,6 +66,7 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
 
     // Methods: commands for subclasses
 
+    // TODO eliminate this?
     protected boolean canExecute(String pPlayer,
         TransferAnythingCommand pCommand) {
         return isCurrent(pPlayer);
@@ -87,17 +88,6 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
         getTransferSet().add(transfer);
         return new TransferredEvent(getContext().getGame(),
             new Request(pPlayer, pCommand));
-    }
-
-    protected boolean canExecute(String pPlayer, TransferSetCommand pCommand) {
-        for (Iterator transfers = pCommand.getTransferSet().iterator();
-            transfers.hasNext();) {
-            if (! canExecute(pPlayer,
-                new TransferCommand((Transfer) transfers.next()))) {
-                return false;
-            }
-        }
-        return true;
     }
 
     protected void execute(String pPlayer, TransferSetCommand pCommand) {
