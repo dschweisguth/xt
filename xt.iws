@@ -118,26 +118,7 @@
     <option name="myCurrentFavoritesList" value="xt" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ToolBarSuite.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/toolbar/ToolBarSuite.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="32" selection-start="341" selection-end="341" vertical-scroll-proportion="0.14654003">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseActionTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/action/BaseActionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0651289">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -354,44 +335,6 @@
         <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xttest" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xttest/client" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth/xttest/client/action" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="xt.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="xt" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:$PROJECT_DIR$/src/org/schweisguth" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ProjectReloadState">
@@ -464,12 +407,12 @@
   <component name="RestoreUpdateTree" />
   <component name="RunManager">
     <activeType name="Application" />
-    <tempConfiguration selected="true" default="false" name="JoinActionTest" type="JUnit" factoryName="JUnit">
+    <tempConfiguration selected="true" default="false" name="CommandActionTest" type="JUnit" factoryName="JUnit">
       <module name="xt" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.schweisguth.xttest.client.action" />
-      <option name="MAIN_CLASS_NAME" value="org.schweisguth.xttest.client.action.JoinActionTest" />
+      <option name="MAIN_CLASS_NAME" value="org.schweisguth.xttest.client.action.CommandActionTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -668,11 +611,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="29" width="1366" height="860" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="0" />
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.5067064" order="3" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.3181818" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.3181818" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.52948886" order="5" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="4" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.5504587" order="1" />
@@ -792,9 +735,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.43758765">
           <folding>
-            <marker date="1132867737000" expanded="false" signature="47:351" placeholder="..." />
-            <marker date="1132867737000" expanded="true" signature="428:1044" placeholder="{...}" />
-            <marker date="1132867737000" expanded="true" signature="1072:1079" placeholder="{...}" />
+            <marker date="1132889613000" expanded="false" signature="47:354" placeholder="..." />
+            <marker date="1132889613000" expanded="true" signature="431:1050" placeholder="{...}" />
+            <marker date="1132889613000" expanded="true" signature="1078:1085" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -806,16 +749,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/action/BaseActionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/toolbar/ToolBarSuite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0651289">
+        <state line="10" column="32" selection-start="341" selection-end="341" vertical-scroll-proportion="0.14654003">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/toolbar/ToolBarSuite.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xt/common/gameimpl/GameImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="341" selection-end="341" vertical-scroll-proportion="0.14654003">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/action/CommandActionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="0" selection-start="3498" selection-end="3498" vertical-scroll-proportion="2.1606061">
           <folding />
         </state>
       </provider>
