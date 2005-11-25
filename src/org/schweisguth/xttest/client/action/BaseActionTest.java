@@ -10,7 +10,7 @@ import org.schweisguth.xt.common.gameimpl.stateimpl.StateImpl;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.testutil.BaseTest;
 
-public abstract class BaseActionTest extends BaseTest {
+abstract class BaseActionTest extends BaseTest {
     // Methods: for subclasses
 
     void assertEnabled(StateImpl pState, boolean pExpectedEnabled) {

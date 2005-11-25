@@ -8,7 +8,6 @@ public class ToolBarSuite {
         try {
             TestSuite suite = new TestSuite();
             suite.addTestSuite(ExchangeActionTest.class);
-            suite.addTestSuite(EndGameActionTest.class);
             suite.addTestSuite(ToolBarTest.class);
             return suite;
         } catch (Throwable e) {

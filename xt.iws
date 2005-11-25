@@ -119,19 +119,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ClientSuite.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/ClientSuite.java">
+      <file leaf-file-name="ToolBarSuite.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/toolbar/ToolBarSuite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.43758765">
+            <state line="10" column="32" selection-start="341" selection-end="341" vertical-scroll-proportion="0.14654003">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChallengingStateTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/challenging/ChallengingStateTest.java">
+      <file leaf-file-name="BaseActionTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/action/BaseActionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="13" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.06732118">
+            <state line="12" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0651289">
               <folding />
             </state>
           </provider>
@@ -788,6 +788,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/ClientSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.43758765">
+          <folding>
+            <marker date="1132867737000" expanded="false" signature="47:351" placeholder="..." />
+            <marker date="1132867737000" expanded="true" signature="428:1044" placeholder="{...}" />
+            <marker date="1132867737000" expanded="true" signature="1072:1079" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/common/gameimpl/challenging/ChallengingStateTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="13" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.06732118">
@@ -795,9 +806,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/ClientSuite.java">
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/action/BaseActionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.43758765">
+        <state line="12" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0651289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/schweisguth/xttest/client/toolbar/ToolBarSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="32" selection-start="341" selection-end="341" vertical-scroll-proportion="0.14654003">
           <folding />
         </state>
       </provider>
