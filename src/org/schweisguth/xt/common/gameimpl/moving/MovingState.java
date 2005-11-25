@@ -13,7 +13,6 @@ import org.schweisguth.xt.common.command.RearrangeBoardCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
 import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
-import org.schweisguth.xt.common.command.TransferSetCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Position;
@@ -65,7 +64,7 @@ public class MovingState extends HasTransferSetStateImpl {
     public MovingState(String[] pPlayers, String[] pRacks,
         TransferSet pTransferSet) {
         this(pPlayers, pRacks);
-        execute(getCurrentPlayer(), new TransferSetCommand(pTransferSet));
+        transfer(getCurrentPlayer(), pTransferSet);
         assertNoRacksAreEmpty();
     }
 

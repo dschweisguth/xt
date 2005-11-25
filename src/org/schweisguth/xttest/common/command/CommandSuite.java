@@ -30,7 +30,6 @@ public class CommandSuite {
             suite.addTestSuite(TakeBackCommandTest.class);
             suite.addTestSuite(TransferAnythingCommandTest.class);
             suite.addTestSuite(TransferCommandTest.class);
-            suite.addTestSuite(TransferSetCommandTest.class);
             return suite;
         } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!

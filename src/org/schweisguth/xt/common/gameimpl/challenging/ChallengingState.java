@@ -2,7 +2,6 @@ package org.schweisguth.xt.common.gameimpl.challenging;
 
 import org.schweisguth.xt.common.command.OverruleChallengeCommand;
 import org.schweisguth.xt.common.command.SustainChallengeCommand;
-import org.schweisguth.xt.common.command.TransferSetCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.ScoreSheet;
 import org.schweisguth.xt.common.domain.TransferSet;
@@ -32,7 +31,7 @@ public class ChallengingState extends HasTransferSetStateImpl {
     public ChallengingState(String[] pPlayers, String[] pRacks, Board pBoard,
         ScoreSheet pScores, int pCurrentPlayerIndex, TransferSet pTransferSet) {
         super(pPlayers, pRacks, pBoard, pScores, pCurrentPlayerIndex);
-        execute(getCurrentPlayer(), new TransferSetCommand(pTransferSet));
+        transfer(getCurrentPlayer(), pTransferSet);
         assertPostConditions();
     }
 

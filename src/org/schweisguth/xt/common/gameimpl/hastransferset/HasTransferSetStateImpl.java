@@ -4,7 +4,6 @@ import java.util.Iterator;
 import org.schweisguth.xt.common.command.RearrangeRackCommand;
 import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
-import org.schweisguth.xt.common.command.TransferSetCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.Position;
 import org.schweisguth.xt.common.domain.Rack;
@@ -90,11 +89,10 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
             new Request(pPlayer, pCommand));
     }
 
-    protected void execute(String pPlayer, TransferSetCommand pCommand) {
-        for (Iterator transfers = pCommand.getTransferSet().iterator();
+    protected void transfer(String pPlayer, TransferSet pTransferSet) {
+        for (Iterator transfers = pTransferSet.iterator();
             transfers.hasNext();) {
-            execute(pPlayer,
-                new TransferCommand((Transfer) transfers.next()));
+            execute(pPlayer, new TransferCommand((Transfer) transfers.next()));
         }
     }
 

@@ -3,7 +3,6 @@ package org.schweisguth.xt.common.gameimpl.approving;
 import java.util.Set;
 import org.schweisguth.xt.common.command.ApproveCommand;
 import org.schweisguth.xt.common.command.ChallengeCommand;
-import org.schweisguth.xt.common.command.TransferSetCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.ScoreSheet;
 import org.schweisguth.xt.common.domain.TransferSet;
@@ -37,7 +36,7 @@ public class ApprovingState extends HasTransferSetStateImpl {
     public ApprovingState(String[] pPlayers, String[] pRacks, Board pBoard,
         ScoreSheet pScores, int pCurrentPlayerIndex, TransferSet pTransferSet) {
         super(pPlayers, pRacks, pBoard, pScores, pCurrentPlayerIndex);
-        execute(getCurrentPlayer(), new TransferSetCommand(pTransferSet));
+        transfer(getCurrentPlayer(), pTransferSet);
         assertPostConditions();
     }
 
