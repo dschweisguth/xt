@@ -17,7 +17,7 @@ import org.schweisguth.xt.common.gameimpl.stateimpl.StateImpl;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.testutil.BaseTest;
 
-public class BoxLidTest extends BaseTest {
+public class BoxLidControllerTest extends BaseTest {
     public void testCreate() {
         BoxLidController controller =
             new BoxLidController(new LocalClient(new GameImpl(), "player1"));
