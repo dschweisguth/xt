@@ -92,7 +92,8 @@ public class MovingState extends HasTransferSetStateImpl {
 
     }
 
-    public boolean canExecute(String pPlayer, TransferAnythingCommand pCommand) {
+    public boolean canExecute(String pPlayer, TransferAnythingCommand pCommand)
+    {
         return super.canExecute(pPlayer, pCommand);
     }
 
@@ -109,8 +110,8 @@ public class MovingState extends HasTransferSetStateImpl {
     }
 
     public boolean canExecute(String pPlayer, RearrangeBoardCommand pCommand) {
-        return isCurrent(pPlayer) &&
-            getBoard().canMove(pCommand.getSource(), pCommand.getDestination());
+        return isCurrent(pPlayer) && getBoard().canMove(
+            pCommand.getSource(), pCommand.getDestination());
     }
 
     public Event execute(String pPlayer, RearrangeBoardCommand pCommand) {
