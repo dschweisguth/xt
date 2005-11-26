@@ -12,7 +12,7 @@ import org.schweisguth.xt.common.util.contract.Assert;
 
 // TODO undo
 
-class ClientController {
+public class ClientController {
     // Fields
     private final ClientView mView;
 

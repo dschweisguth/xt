@@ -17,6 +17,7 @@ public class ClientSuite {
             suite.addTest(ToolBarSuite.suite());
             suite.addTestSuite(BoardModelTest.class);
             suite.addTestSuite(BoxLidTest.class);
+            suite.addTestSuite(ClientControllerTest.class);
             suite.addTestSuite(CommandActionTest.class);
             suite.addTestSuite(SeatingControllerTest.class);
             return suite;

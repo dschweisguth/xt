@@ -27,7 +27,7 @@ import org.schweisguth.xt.common.util.contract.Assert;
 
 // TODO minimize refreshes by comparing domain objects
 
-class ClientView extends JFrame {
+public class ClientView extends JFrame {
     // Fields: constants
     private static final int TEXT_FONT_HEIGHT =
         new JEditorPane().getFontMetrics(
