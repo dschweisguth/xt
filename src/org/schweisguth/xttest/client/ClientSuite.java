@@ -20,6 +20,7 @@ public class ClientSuite {
             suite.addTestSuite(ClientControllerTest.class);
             suite.addTestSuite(CommandActionTest.class);
             suite.addTestSuite(PlayerModelTest.class);
+            suite.addTestSuite(ScoreModelTest.class);
             suite.addTestSuite(SeatingControllerTest.class);
             return suite;
         } catch (Throwable e) {

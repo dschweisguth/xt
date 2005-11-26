@@ -7,7 +7,7 @@ import org.schweisguth.xt.common.util.collection.ArraySetList;
 // TODO send change event only if scoresheet changes
 // TODO send only row change event when appropriate
 
-class ScoreModel extends AbstractTableModel {
+public class ScoreModel extends AbstractTableModel {
     // Fields
     private ScoreSheet mScoreSheet = new ScoreSheet(new ArraySetList());
 
