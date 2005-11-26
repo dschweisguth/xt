@@ -8,6 +8,7 @@ public class PlayerRackControllerSuite {
         try {
             TestSuite suite = new TestSuite();
             suite.addTestSuite(ClientPlayerRackControllerTest.class);
+            suite.addTestSuite(ClientPlayerRackModelTest.class);
             suite.addTestSuite(OtherPlayerRackControllerTest.class);
             return suite;
         } catch (Throwable e) {

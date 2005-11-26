@@ -5,7 +5,7 @@ import org.schweisguth.xt.common.domain.Rack;
 import org.schweisguth.xt.common.domain.Tile;
 import org.schweisguth.xt.common.util.contract.Assert;
 
-class ClientPlayerRackModel extends AbstractTableModel
+public class ClientPlayerRackModel extends AbstractTableModel
     implements PlayerRackModel {
     // Fields
     private Rack mRack;
