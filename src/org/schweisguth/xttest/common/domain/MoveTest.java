@@ -152,9 +152,9 @@ public class MoveTest extends TestCase {
         Move other = new Move();
         other.add(new Position(1, 0));
         tester.addOther(other);
+        tester.setExpectedString("[(0, 0)]");
         Move move = new Move();
         move.add(new Position(0, 0));
-        assertFalse(move.equals(other));
         tester.doAssert(move);
     }
 
