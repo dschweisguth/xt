@@ -1,4 +1,4 @@
-package org.schweisguth.xttest.client;
+package org.schweisguth.xttest.client.chat;
 
 import java.awt.event.ActionEvent;
 import java.util.Collections;

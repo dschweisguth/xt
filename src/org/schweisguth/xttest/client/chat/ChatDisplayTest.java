@@ -1,4 +1,4 @@
-package org.schweisguth.xttest.client;
+package org.schweisguth.xttest.client.chat;
 
 import java.rmi.RemoteException;
 import org.schweisguth.xt.client.chat.display.ChatDisplayController;

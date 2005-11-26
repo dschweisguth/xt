@@ -1,4 +1,4 @@
-package org.schweisguth.xttest.client.action;
+package org.schweisguth.xttest.client;
 
 import java.rmi.RemoteException;
 import javax.swing.Action;

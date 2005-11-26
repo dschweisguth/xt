@@ -1,4 +1,4 @@
-package org.schweisguth.xttest.client.board;
+package org.schweisguth.xttest.client;
 
 import junit.framework.TestCase;
 import org.schweisguth.xt.client.board.BoardModel;
