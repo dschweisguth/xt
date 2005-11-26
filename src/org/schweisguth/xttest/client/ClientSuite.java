@@ -3,6 +3,7 @@ package org.schweisguth.xttest.client;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.schweisguth.xttest.client.action.CommandActionTest;
+import org.schweisguth.xttest.client.board.BoardModelTest;
 import org.schweisguth.xttest.client.rackimpl.PlayerRackControllerSuite;
 import org.schweisguth.xttest.client.server.ServerSuite;
 import org.schweisguth.xttest.client.toolbar.ToolBarSuite;
@@ -12,6 +13,7 @@ public class ClientSuite {
         try {
             TestSuite suite = new TestSuite();
             suite.addTestSuite(CommandActionTest.class);
+            suite.addTestSuite(BoardModelTest.class);
             suite.addTest(PlayerRackControllerSuite.suite());
             suite.addTest(ServerSuite.suite());
             suite.addTest(ToolBarSuite.suite());
