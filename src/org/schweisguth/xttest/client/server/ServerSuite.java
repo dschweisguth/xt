@@ -9,7 +9,6 @@ public class ServerSuite {
             TestSuite suite = new TestSuite();
             suite.addTestSuite(ClientTest.class);
             suite.addTestSuite(RefreshEventTest.class);
-            suite.addTestSuite(ServerUtilTest.class);
             return suite;
         } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
