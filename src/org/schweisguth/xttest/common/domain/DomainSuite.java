@@ -12,6 +12,7 @@ public class DomainSuite {
             suite.addTestSuite(BoardTest.class);
             suite.addTestSuite(ModifierTest.class);
             suite.addTestSuite(MoveTest.class);
+            suite.addTestSuite(PositionTest.class);
             suite.addTestSuite(RackTest.class);
             suite.addTestSuite(ScoreSheetTest.class);
             suite.addTestSuite(TileTest.class);
