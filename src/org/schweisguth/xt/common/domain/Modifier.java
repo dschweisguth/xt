@@ -48,4 +48,14 @@ public class Modifier implements Serializable {
         return 3 * mLetterModifier + mWordModifier;
     }
 
+    public String toString() {
+        if (mLetterModifier > 1) {
+            return mLetterModifier + "LS";
+        } else if (mWordModifier > 1) {
+            return mWordModifier + "WS";
+        } else {
+            return "   ";
+        }
+    }
+
 }

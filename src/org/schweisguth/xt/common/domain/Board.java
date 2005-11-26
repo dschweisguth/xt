@@ -484,7 +484,7 @@ public class Board implements Serializable {
                     }
                     buf.append(" " + letter + ' ');
                 } else {
-                    buf.append(asString(getModifier(x, y)));
+                    buf.append(getModifier(x, y).toString());
                 }
                 if (x < getSize() - 1) {
                     buf.append(" ");
@@ -494,18 +494,6 @@ public class Board implements Serializable {
             }
         }
         return buf.toString();
-    }
-
-    private static String asString(Modifier modifier) {
-        int letterModifier = modifier.getLetterMultiplier();
-        int wordModifier = modifier.getWordMultiplier();
-        if (letterModifier > 1) {
-            return letterModifier + "LS";
-        } else if (wordModifier > 1) {
-            return wordModifier + "WS";
-        } else {
-            return "   ";
-        }
     }
 
 }
