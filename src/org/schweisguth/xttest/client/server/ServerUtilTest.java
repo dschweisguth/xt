@@ -6,8 +6,8 @@ import org.schweisguth.xt.common.server.Server;
 import org.schweisguth.xt.server.ServerImpl;
 import org.schweisguth.xttest.testutil.BaseTest;
 
-public class ServerTest extends BaseTest {
-    public void testGetGame() throws Exception {
+public class ServerUtilTest extends BaseTest {
+    public void testGetServer() throws Exception {
         ServerImpl.clear();
         ServerImpl.main(new String[] { });
         Server server = ServerUtil.getServer();
