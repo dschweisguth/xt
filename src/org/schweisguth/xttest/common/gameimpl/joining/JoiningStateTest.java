@@ -17,10 +17,15 @@ import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class JoiningStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
-        assertIsSerializable(new JoiningState(new String[] { "player1" }));
+    // TODO do this for all states
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new JoiningState());
+        tester.addOther(new JoiningState(TWO_PLAYERS));
+        tester.doAssert(new JoiningState(new String[] { "player1" }));
     }
 
     public void testCreateNoPlayers() {
