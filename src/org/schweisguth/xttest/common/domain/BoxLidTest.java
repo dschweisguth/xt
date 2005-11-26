@@ -165,10 +165,6 @@ public class BoxLidTest extends BaseTest {
 
     }
 
-    public void testSerializable() throws Exception {
-        assertIsSerializable(new BoxLid());
-    }
-
     public void testValueObjectBehavior() throws Exception {
         ValueObjectTester tester = new ValueObjectTester();
         tester.addOther(new BoxLid("B"));
