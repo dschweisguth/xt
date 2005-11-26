@@ -35,9 +35,8 @@ public class CommandActionTest extends BaseTest {
 
     public void testExecuteDisablesSelf() throws RemoteException {
         ListenableGame game = new GameImpl(new JoiningState());
-        CommandAction action =
-            createAction(game, "player1", new JoinCommand());
-        action.execute();
+        Action action = createAction(game, "player1", new JoinCommand());
+        action.actionPerformed(null);
 
         assertFalse(action.isEnabled());
 
@@ -46,20 +45,23 @@ public class CommandActionTest extends BaseTest {
     public void testExecuteDisablesOther() throws RemoteException {
         ListenableGame game =
             new GameImpl(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
-        Action action =
+        Action other =
             createAction(game, "player2", new StartNewGameCommand());
-        createAction(game, "player1", new StartNewGameCommand()).execute();
+        Action action =
+            createAction(game, "player1", new StartNewGameCommand());
+        action.actionPerformed(null);
 
-        assertFalse(action.isEnabled());
+        assertFalse(other.isEnabled());
 
     }
 
     public void testExecuteLeavesOtherDisabled() throws RemoteException {
         ListenableGame game = new GameImpl(new JoiningState());
-        Action action = createAction(game, "player2", new StartCommand());
-        createAction(game, "player1", new JoinCommand()).execute();
+        Action other = createAction(game, "player2", new StartCommand());
+        Action action = createAction(game, "player1", new JoinCommand());
+        action.actionPerformed(null);
 
-        assertFalse(action.isEnabled());
+        assertFalse(other.isEnabled());
 
     }
 
@@ -67,7 +69,8 @@ public class CommandActionTest extends BaseTest {
         ListenableGame game =
             new GameImpl(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
         Action action = createAction(game, "player2", new JoinCommand());
-        createAction(game, "player1", new StartNewGameCommand()).execute();
+        createAction(game, "player1",
+            new StartNewGameCommand()).actionPerformed(null);
 
         assertTrue(action.isEnabled());
 
@@ -75,10 +78,11 @@ public class CommandActionTest extends BaseTest {
 
     public void testExecuteLeavesOtherEnabled() throws RemoteException {
         ListenableGame game = new GameImpl(new JoiningState());
-        Action action = createAction(game, "player2", new JoinCommand());
-        createAction(game, "player1", new JoinCommand()).execute();
+        Action other = createAction(game, "player2", new JoinCommand());
+        Action action = createAction(game, "player1", new JoinCommand());
+        action.actionPerformed(null);
 
-        assertTrue(action.isEnabled());
+        assertTrue(other.isEnabled());
 
     }
 

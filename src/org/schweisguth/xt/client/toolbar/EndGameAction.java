@@ -12,7 +12,7 @@ public class EndGameAction extends CommandAction {
         super(pClient, new EndGameCommand());
     }
 
-    public void execute() throws RemoteException {
+    protected void execute() throws RemoteException {
         int choice = JOptionPane.showConfirmDialog(
             MainFrameHolder.instance().getMainFrame(),
             "Are you sure you want to end the game?", "End Game?",

@@ -27,7 +27,7 @@ public class CommandAction extends BaseDisableableAction {
         return getClient().canExecute(mCommand);
     }
 
-    public void execute() throws RemoteException {
+    protected void execute() throws RemoteException {
         getClient().execute(mCommand);
     }
 

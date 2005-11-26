@@ -137,7 +137,7 @@ public class ExchangeActionTest extends BaseTest {
         ExchangeAction action1 = getAction(game, "player1", seatController);
         Action action2 = getAction(game, "player2", seatController);
         Action observerAction = getAction(game, "observer", seatController);
-        action1.execute();
+        action1.actionPerformed(null);
         // In the real code, exchanging updates the UI and clears the selection
         seatController.setClientPlayerRackViewSelectedColumns(new int[] { });
 
@@ -155,7 +155,7 @@ public class ExchangeActionTest extends BaseTest {
         ExchangeAction action1 = getAction(game, "player1", seatController);
         Action action2 = getAction(game, "player2", seatController);
         Action observerAction = getAction(game, "observer", seatController);
-        action1.execute();
+        action1.actionPerformed(null);
         // In the real code, exchanging updates the UI and clears the selection
         seatController.setClientPlayerRackViewSelectedColumns(new int[] { });
         seatController.setClientPlayerRackViewSelectedColumns(new int[] { 0 });
