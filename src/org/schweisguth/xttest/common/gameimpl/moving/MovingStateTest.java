@@ -9,7 +9,6 @@ import org.schweisguth.xt.common.command.PassCommand;
 import org.schweisguth.xt.common.command.RearrangeBoardCommand;
 import org.schweisguth.xt.common.command.RearrangeRackCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
-import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
@@ -47,7 +46,6 @@ public class MovingStateTest extends BaseTest {
     public void testCreate() {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         CanExecuteTester tester1 = new CanExecuteTester();
-        tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 0 }));
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new RearrangeRackCommand(0, 1));
@@ -62,7 +60,6 @@ public class MovingStateTest extends BaseTest {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setPasses(CollectionUtil.asStickySet("player2"));
         CanExecuteTester tester1 = new CanExecuteTester();
-        tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 0 }));
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new EndGameCommand());
@@ -81,7 +78,6 @@ public class MovingStateTest extends BaseTest {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
             new TransferSet(transfer));
         CanExecuteTester tester1 = new CanExecuteTester();
-        tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new TransferCommand(new Transfer(1, 7, 8)));
         // Test that placing second tile out of line is OK
         tester1.addTrue(new TransferCommand(new Transfer(1, 8, 8)));
@@ -105,7 +101,6 @@ public class MovingStateTest extends BaseTest {
         MovingState state =
             new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO);
         CanExecuteTester tester1 = new CanExecuteTester();
-        tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 2 }));
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new FinishCommand());
@@ -122,7 +117,6 @@ public class MovingStateTest extends BaseTest {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setBoxLid(new BoxLid(""));
         CanExecuteTester tester1 = new CanExecuteTester();
-        tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new PassCommand());
         tester1.addTrue(new RearrangeRackCommand(0, 1));
         tester1.doAssert(state, "player1");
@@ -136,7 +130,6 @@ public class MovingStateTest extends BaseTest {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         state.setBoxLid(new BoxLid("A"));
         CanExecuteTester tester1 = new CanExecuteTester();
-        tester1.addTrue(new TransferAnythingCommand());
         tester1.addTrue(new ExchangeCommand(new int[] { 0 }));
         tester1.addFalse(new ExchangeCommand(new int[] { 0, 1 }));
         tester1.addTrue(new PassCommand());

@@ -9,8 +9,8 @@ import org.schweisguth.xt.client.rack.ClientPlayerRackView;
 import org.schweisguth.xt.client.seat.SeatController;
 import org.schweisguth.xt.client.server.Client;
 import org.schweisguth.xt.client.util.BaseTableColumnModelListener;
+import org.schweisguth.xt.common.command.PassCommand;
 import org.schweisguth.xt.common.command.RearrangeBoardCommand;
-import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
 import org.schweisguth.xt.common.domain.Position;
 import org.schweisguth.xt.common.domain.Transfer;
@@ -42,9 +42,8 @@ public class BoardController {
             // Set board selectability -- doesn't stop selection changes, but
             // does reduce the changes in appearance. ?!?
             // The following check works for rearranging the board, too.
-            mView.setCellSelectionEnabled(game.canExecute(new Request(
-                mClient.getPlayer(),
-                new TransferAnythingCommand())));
+            mView.setCellSelectionEnabled(game.canExecute(
+                new Request(mClient.getPlayer(), new PassCommand())));
         }
     }
 
@@ -168,8 +167,8 @@ public class BoardController {
                         }
                         clearBoardSelection();
                     } else if (rackView.getSelectedColumnCount() == 1) {
-                        if (mClient.canExecute(new TransferAnythingCommand()))
-                        {
+                        // If the player can pass, they can also transfer.
+                        if (mClient.canExecute(new PassCommand())) {
                             TransferCommand command = new TransferCommand(
                                 new Transfer(rackSelection, boardSelection));
                             if (mClient.canExecute(command)) {

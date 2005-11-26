@@ -28,7 +28,6 @@ public class CommandSuite {
             suite.addTestSuite(StartNewGameCommandTest.class);
             suite.addTestSuite(SustainChallengeCommandTest.class);
             suite.addTestSuite(TakeBackCommandTest.class);
-            suite.addTestSuite(TransferAnythingCommandTest.class);
             suite.addTestSuite(TransferCommandTest.class);
             return suite;
         } catch (Throwable e) {

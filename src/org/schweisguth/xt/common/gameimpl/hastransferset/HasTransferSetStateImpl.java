@@ -2,7 +2,6 @@ package org.schweisguth.xt.common.gameimpl.hastransferset;
 
 import java.util.Iterator;
 import org.schweisguth.xt.common.command.RearrangeRackCommand;
-import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.Position;
@@ -65,14 +64,9 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
 
     // Methods: commands for subclasses
 
-    protected boolean canExecute(String pPlayer,
-        TransferAnythingCommand pCommand) {
-        return isCurrent(pPlayer);
-    }
-
     protected boolean canExecute(String pPlayer, TransferCommand pCommand) {
         Transfer transfer = pCommand.getTransfer();
-        return canExecute(pPlayer, new TransferAnythingCommand()) &&
+        return isCurrent(pPlayer) &&
             getRack(pPlayer).contains(transfer.getRackPosition()) &&
             getBoard().canPlace(transfer.getBoardPosition());
     }

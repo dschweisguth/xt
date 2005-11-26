@@ -11,7 +11,6 @@ import org.schweisguth.xt.common.command.FinishCommand;
 import org.schweisguth.xt.common.command.PassCommand;
 import org.schweisguth.xt.common.command.RearrangeBoardCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
-import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
@@ -90,15 +89,6 @@ public class MovingState extends HasTransferSetStateImpl {
         mPasses.clear();
         mPasses.addAll(pPasses);
 
-    }
-
-    public boolean canExecute(String pPlayer, TransferAnythingCommand pCommand)
-    {
-        return super.canExecute(pPlayer, pCommand);
-    }
-
-    public Event execute(String pPlayer, TransferAnythingCommand pCommand) {
-        throw new UnsupportedOperationException();
     }
 
     public boolean canExecute(String pPlayer, TransferCommand pCommand) {

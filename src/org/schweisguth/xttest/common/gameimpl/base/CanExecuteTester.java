@@ -20,7 +20,6 @@ import org.schweisguth.xt.common.command.RearrangeRackCommand;
 import org.schweisguth.xt.common.command.StartCommand;
 import org.schweisguth.xt.common.command.StartNewGameCommand;
 import org.schweisguth.xt.common.command.SustainChallengeCommand;
-import org.schweisguth.xt.common.command.TransferAnythingCommand;
 import org.schweisguth.xt.common.domain.Player;
 import org.schweisguth.xt.common.domain.Position;
 import org.schweisguth.xt.common.game.Request;
@@ -50,7 +49,6 @@ public class CanExecuteTester {
         mFalse.add(new StartCommand());
         mFalse.add(new StartNewGameCommand());
         mFalse.add(new SustainChallengeCommand());
-        mFalse.add(new TransferAnythingCommand());
         mTrue.add(new ChatCommand("x"));
     }
 
