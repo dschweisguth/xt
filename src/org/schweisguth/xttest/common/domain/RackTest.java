@@ -111,7 +111,11 @@ public class RackTest extends TestCase {
     }
 
     public void testValueObjectBehavior() throws Exception {
-        new ValueObjectTester().doAssert(new Rack(""));
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new Rack());
+        tester.addOther(new Rack("B"));
+        tester.setExpectedString("[A, null, null, null, null, null, null]");
+        tester.doAssert(new Rack("A"));
     }
 
 }
