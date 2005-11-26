@@ -25,6 +25,22 @@ public class TileTest extends TestCase {
         assertTrue(Tile.get(' ').compareTo(Tile.get('A')) > 0);
     }
 
+    public void testCompareToNull() {
+        try {
+            Tile.get('A').compareTo(null);
+            fail();
+        } catch (ClassCastException e) {
+        }
+    }
+
+    public void testCompareToOtherClass() {
+        try {
+            Tile.get('A').compareTo(new Object());
+            fail();
+        } catch (ClassCastException e) {
+        }
+    }
+
     public void testValueObjectBehavior() throws Exception {
         ValueObjectTester tester = new ValueObjectTester();
         tester.addOther(Tile.get('B'));
