@@ -3,6 +3,7 @@ package org.schweisguth.xttest.common.domain;
 import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Tile;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class BoxLidTest extends BaseTest {
     public void testCreateString0() {
@@ -166,6 +167,13 @@ public class BoxLidTest extends BaseTest {
 
     public void testSerializable() throws Exception {
         assertIsSerializable(new BoxLid());
+    }
+
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new BoxLid("B"));
+        tester.setExpectedString("[A]");
+        tester.doAssert(new BoxLid("A"));
     }
 
 }
