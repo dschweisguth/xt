@@ -7,6 +7,7 @@ public class DomainSuite {
     public static Test suite() throws Throwable {
         try {
             TestSuite suite = new TestSuite();
+            suite.addTestSuite(AxisTest.class);
             suite.addTestSuite(BoxLidTest.class);
             suite.addTestSuite(BoardTest.class);
             suite.addTestSuite(ModifierTest.class);
