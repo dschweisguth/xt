@@ -9,7 +9,19 @@ public class ModifierTest extends TestCase {
         ValueObjectTester tester = new ValueObjectTester();
         tester.addOther(Modifier.DEFAULT);
         tester.addOther(Modifier.DOUBLE_WORD);
-        tester.setExpectedString("2LS");
         tester.doAssert(Modifier.DOUBLE_LETTER);
     }
+
+    public void testToStringDefault() {
+        assertEquals("   ", Modifier.DEFAULT.toString());
+    }
+
+    public void testToStringLetter() {
+        assertEquals("2LS", Modifier.DOUBLE_LETTER.toString());
+    }
+
+    public void testToStringWord() {
+        assertEquals("2WS", Modifier.DOUBLE_WORD.toString());
+    }
+
 }
