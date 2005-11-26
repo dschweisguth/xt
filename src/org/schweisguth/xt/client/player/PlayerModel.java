@@ -4,7 +4,7 @@ import org.schweisguth.xt.client.observable.Observer;
 import org.schweisguth.xt.client.observable.ObserverManager;
 import org.schweisguth.xt.common.util.contract.Assert;
 
-class PlayerModel {
+public class PlayerModel {
     // Fields
     private final String mPlayer;
     private boolean mIsTurn = false;

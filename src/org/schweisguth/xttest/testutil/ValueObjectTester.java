@@ -8,6 +8,7 @@ import org.schweisguth.xt.common.util.collection.SetList;
 public class ValueObjectTester {
     private final SetList mOthers = new ArraySetList();
     private String mExpectedString = null;
+    private boolean mShouldBeSerializable = true;
 
     public void addOther(Object pObject) {
         mOthers.add(pObject);
@@ -15,6 +16,10 @@ public class ValueObjectTester {
 
     public void setExpectedString(String pExpectedString) {
         mExpectedString = pExpectedString;
+    }
+
+    public void setShouldBeSerializable(boolean pShouldBeSerializable) {
+        mShouldBeSerializable = pShouldBeSerializable;
     }
 
     public void doAssert(Object pObject) throws Exception {
@@ -26,7 +31,9 @@ public class ValueObjectTester {
         if (mExpectedString != null) {
             Assert.assertEquals(mExpectedString, pObject.toString());
         }
-        Util.assertIsSerializable(pObject);
+        if (mShouldBeSerializable) {
+            Util.assertIsSerializable(pObject);
+        }
     }
 
     private static void assertEquals(Object pOne, Object pOther) {

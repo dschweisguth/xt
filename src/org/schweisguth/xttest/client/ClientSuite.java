@@ -19,6 +19,7 @@ public class ClientSuite {
             suite.addTestSuite(BoxLidTest.class);
             suite.addTestSuite(ClientControllerTest.class);
             suite.addTestSuite(CommandActionTest.class);
+            suite.addTestSuite(PlayerModelTest.class);
             suite.addTestSuite(SeatingControllerTest.class);
             return suite;
         } catch (Throwable e) {
