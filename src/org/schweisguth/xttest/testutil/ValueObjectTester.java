@@ -25,6 +25,7 @@ public class ValueObjectTester {
     public void doAssert(Object pObject) throws Exception {
         assertEquals(pObject, pObject);
         assertDoesNotEqual(pObject, null);
+        assertDoesNotEqual(pObject, new Object());
         for (Iterator others = mOthers.iterator(); others.hasNext();) {
             assertDoesNotEqual(pObject, others.next());
         }

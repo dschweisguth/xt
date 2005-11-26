@@ -16,6 +16,7 @@ public class DomainSuite {
             suite.addTestSuite(RackTest.class);
             suite.addTestSuite(ScoreSheetTest.class);
             suite.addTestSuite(TileTest.class);
+            suite.addTestSuite(TransferTest.class);
             suite.addTestSuite(TransferSetTest.class);
             return suite;
         } catch (Throwable e) {

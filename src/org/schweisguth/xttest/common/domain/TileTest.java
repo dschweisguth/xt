@@ -26,7 +26,10 @@ public class TileTest extends TestCase {
     }
 
     public void testValueObjectBehavior() throws Exception {
-        new ValueObjectTester().doAssert(Tile.get('A'));
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(Tile.get('B'));
+        tester.setExpectedString("A");
+        tester.doAssert(Tile.get('A'));
     }
 
 }

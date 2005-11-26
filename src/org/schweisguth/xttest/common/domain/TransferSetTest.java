@@ -160,7 +160,15 @@ public class TransferSetTest extends TestCase {
     }
 
     public void testValueObjectBehavior() throws Exception {
-        new ValueObjectTester().doAssert(new TransferSet(0, 0, 0));
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new TransferSet(1, 0, 0));
+        tester.addOther(new TransferSet(0, 1, 0));
+        TransferSet differentSize = new TransferSet();
+        differentSize.add(new Transfer(0, 0, 0));
+        differentSize.add(new Transfer(1, 1, 0));
+        tester.addOther(differentSize);
+        tester.setExpectedString("[0->(0, 0)]");
+        tester.doAssert(new TransferSet(0, 0, 0));
     }
 
 }

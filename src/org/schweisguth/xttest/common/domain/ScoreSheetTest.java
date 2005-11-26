@@ -227,7 +227,21 @@ public class ScoreSheetTest extends BaseTest {
     }
 
     public void testValueObjectBehavior() throws Exception {
-        new ValueObjectTester().doAssert(new ScoreSheet(TWO_PLAYERS));
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new ScoreSheet(new String[] { "player1" }));
+        tester.addOther(new ScoreSheet(TWO_PLAYERS));
+        ScoreSheet other1 = new ScoreSheet(TWO_PLAYERS);
+        other1.incrementScore(2);
+        tester.addOther(other1);
+        ScoreSheet other2 = new ScoreSheet(TWO_PLAYERS);
+        other2.incrementScore(1);
+        other2.incrementScore(1);
+        tester.addOther(other2);
+        tester.setExpectedString(
+            "ScoreSheet(PLAYING, [player1, player2], [[1, null]])");
+        ScoreSheet scoreSheet = new ScoreSheet(TWO_PLAYERS);
+        scoreSheet.incrementScore(1);
+        tester.doAssert(scoreSheet);
     }
 
 }
