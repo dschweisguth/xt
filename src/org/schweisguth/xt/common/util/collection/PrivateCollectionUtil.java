@@ -1,5 +1,6 @@
 package org.schweisguth.xt.common.util.collection;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -54,6 +55,10 @@ class PrivateCollectionUtil {
 
     public static boolean containsDuplicates(Collection pCollection) {
         return new HashSet(pCollection).size() != pCollection.size();
+    }
+
+    public static boolean containsDuplicates(Object[] pArray) {
+        return containsDuplicates(Arrays.asList(pArray));
     }
 
     private PrivateCollectionUtil() {

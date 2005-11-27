@@ -1,5 +1,7 @@
 package org.schweisguth.xttest.common.util.collection;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import junit.framework.TestCase;
@@ -8,6 +10,22 @@ import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xt.common.util.collection.DuplicateElementException;
 
 public class ArrayListSetListTest extends TestCase {
+    public void testCreateCollectionNull() {
+        try {
+            new ArraySetList((Collection) null);
+            fail();
+        } catch (NullPointerException e) {
+        }
+    }
+
+    public void testCreateCollectionBad() {
+        try {
+            new ArraySetList(Arrays.asList(new String[] { "", "" }));
+            fail();
+        } catch (DuplicateElementException e) {
+        }
+    }
+
     public void testCreateArrayNull() {
         try {
             new ArraySetList((Object[]) null);

@@ -2,7 +2,6 @@ package org.schweisguth.xt.common.util.collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import org.schweisguth.xt.common.util.contract.Assert;
 
 public class ArraySetList extends ArrayList implements SetList {
@@ -14,15 +13,18 @@ public class ArraySetList extends ArrayList implements SetList {
     }
 
     public ArraySetList(Collection pCollection) {
-        Assert.assertFalse(
-            PrivateCollectionUtil.containsDuplicates(pCollection));
-        for (Iterator iterator = pCollection.iterator(); iterator.hasNext();) {
-            add(iterator.next());
+        super(pCollection.size());
+        if (PrivateCollectionUtil.containsDuplicates(pCollection)) {
+            throw new DuplicateElementException();
         }
+        super.addAll(pCollection);
     }
 
     public ArraySetList(Object[] pSource) {
         super(pSource.length);
+        if (PrivateCollectionUtil.containsDuplicates(pSource)) {
+            throw new DuplicateElementException();
+        }
         for (int i = 0; i < pSource.length; i++) {
             add(pSource[i]);
         }
