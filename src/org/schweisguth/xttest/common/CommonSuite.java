@@ -17,6 +17,7 @@ public class CommonSuite {
             suite.addTest(DomainSuite.suite());
             suite.addTest(GameSuite.suite());
             suite.addTest(GameImplSuite.suite());
+            suite.addTestSuite(ConfigurationTest.class);
             return suite;
         } catch (Throwable e) {
             e.printStackTrace(); // JUnit just prints the exception class name!
