@@ -20,7 +20,6 @@ import org.schweisguth.xttest.testutil.BaseTest;
 import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class JoiningStateTest extends BaseTest {
-    // TODO do this for all states
     public void testValueObjectBehavior() throws Exception {
         ValueObjectTester tester = new ValueObjectTester();
         tester.addOther(new JoiningState());

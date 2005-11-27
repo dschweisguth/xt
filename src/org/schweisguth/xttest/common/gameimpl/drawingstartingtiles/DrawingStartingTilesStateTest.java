@@ -17,10 +17,14 @@ import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class DrawingStartingTilesStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
-        assertIsSerializable(new DrawingStartingTilesState(
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new DrawingStartingTilesState(
+            TWO_PLAYERS, new String[] { "", "" }));
+        tester.doAssert(new DrawingStartingTilesState(
             TWO_PLAYERS, new String[] { "", EEEEEEE }));
     }
 

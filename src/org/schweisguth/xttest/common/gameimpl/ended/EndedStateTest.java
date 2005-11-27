@@ -14,10 +14,14 @@ import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class EndedStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
-        assertIsSerializable(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(
+            new EndedState(THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII));
+        tester.doAssert(new EndedState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
     }
 
     public void testCreate() {

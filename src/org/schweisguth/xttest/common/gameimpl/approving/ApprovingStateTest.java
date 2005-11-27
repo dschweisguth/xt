@@ -27,13 +27,15 @@ import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class ApprovingStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
-        ApprovingState state =
-            new ApprovingState(THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII, MOVE_TWO);
-        state.setApprovals(CollectionUtil.asStickySet("player2"));
-        assertIsSerializable(state);
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new ApprovingState(
+            THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII, MOVE_TWO));
+        tester.doAssert(new ApprovingState(
+            TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
     }
 
     public void testCreate2() {

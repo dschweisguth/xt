@@ -36,10 +36,13 @@ import org.schweisguth.xt.common.util.collection.HashStickySet;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class MovingStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
-        assertIsSerializable(
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE));
+        tester.doAssert(
             new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
     }
 

@@ -1,9 +1,14 @@
 package org.schweisguth.xttest.testutil;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Iterator;
 import junit.framework.Assert;
 import org.schweisguth.xt.common.util.collection.ArraySetList;
 import org.schweisguth.xt.common.util.collection.SetList;
+import org.schweisguth.xt.common.util.io.IOUtil;
 
 public class ValueObjectTester {
     private final SetList mOthers = new ArraySetList();
@@ -33,7 +38,7 @@ public class ValueObjectTester {
             Assert.assertEquals(mExpectedString, pObject.toString());
         }
         if (mShouldBeSerializable) {
-            Util.assertIsSerializable(pObject);
+            assertIsSerializable(pObject);
         }
     }
 
@@ -50,6 +55,34 @@ public class ValueObjectTester {
         if (pOther != null) {
             Assert.assertFalse(pOther.equals(pObject));
         }
+    }
+
+    private static void assertIsSerializable(Object pObject) throws Exception {
+        ByteArrayOutputStream bytesOut = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream objectsOut = new ObjectOutputStream(bytesOut);
+            try {
+                objectsOut.writeObject(pObject);
+            } finally {
+                IOUtil.close(objectsOut);
+            }
+        } finally {
+            IOUtil.close(bytesOut);
+        }
+        ByteArrayInputStream bytesIn =
+            new ByteArrayInputStream(bytesOut.toByteArray());
+        Object serializedObject;
+        try {
+            ObjectInputStream objectsIn = new ObjectInputStream(bytesIn);
+            try {
+                serializedObject = objectsIn.readObject();
+            } finally {
+                IOUtil.close(objectsIn);
+            }
+        } finally {
+            IOUtil.close(bytesIn);
+        }
+        Assert.assertEquals(pObject, serializedObject);
     }
 
 }

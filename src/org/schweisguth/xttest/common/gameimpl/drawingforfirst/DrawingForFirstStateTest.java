@@ -19,15 +19,18 @@ import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class DrawingForFirstStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new DrawingForFirstState(TWO_PLAYERS));
         Map tilesDrawnForFirst = new HashStickyMap();
         tilesDrawnForFirst.put("player1", Tile.get('A'));
         tilesDrawnForFirst.put("player2", null);
         DrawingForFirstState state = new DrawingForFirstState(TWO_PLAYERS);
         state.setTilesDrawnForFirst(tilesDrawnForFirst);
-        assertIsSerializable(state);
+        tester.doAssert(state);
     }
 
     public void testCreateTwoPlayersNoneHaveDrawn() {

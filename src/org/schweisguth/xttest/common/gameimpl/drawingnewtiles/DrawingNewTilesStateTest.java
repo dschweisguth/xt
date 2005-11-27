@@ -19,14 +19,21 @@ import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class DrawingNewTilesStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        ScoreSheet otherScores = new ScoreSheet(TWO_PLAYERS);
+        otherScores.incrementScore(5);
+        DrawingNewTilesState otherState = new DrawingNewTilesState(
+            TWO_PLAYERS, AAAAAAA_EEEEEEE, otherScores, MOVE_TWO);
+        tester.addOther(otherState);
         ScoreSheet expectedScores = new ScoreSheet(TWO_PLAYERS);
         expectedScores.incrementScore(4);
         DrawingNewTilesState state = new DrawingNewTilesState(
             TWO_PLAYERS, AAAAAAA_EEEEEEE, expectedScores, MOVE_TWO);
-        assertIsSerializable(state);
+        tester.doAssert(state);
     }
 
     public void testCreate() {

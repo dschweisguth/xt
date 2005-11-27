@@ -26,11 +26,15 @@ import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
 import org.schweisguth.xttest.common.gameimpl.base.LocalClient;
 import org.schweisguth.xttest.common.gameimpl.base.TestClient;
 import org.schweisguth.xttest.testutil.BaseTest;
+import org.schweisguth.xttest.testutil.ValueObjectTester;
 
 public class ChallengingStateTest extends BaseTest {
-    public void testSerializable() throws Exception {
-        assertIsSerializable(
-            new ChallengingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
+    public void testValueObjectBehavior() throws Exception {
+        ValueObjectTester tester = new ValueObjectTester();
+        tester.addOther(new ChallengingState(
+            THREE_PLAYERS, AAAAAAA_EEEEEEE_IIIIIII, MOVE_TWO));
+        tester.doAssert(new ChallengingState(
+            TWO_PLAYERS, AAAAAAA_EEEEEEE, MOVE_TWO));
     }
 
     public void testCreate() {
