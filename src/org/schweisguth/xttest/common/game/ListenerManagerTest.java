@@ -1,10 +1,12 @@
 package org.schweisguth.xttest.common.game;
 
+import java.rmi.RemoteException;
 import junit.framework.TestCase;
 import org.schweisguth.xt.client.server.RefreshEvent;
 import org.schweisguth.xt.common.game.Event;
 import org.schweisguth.xt.common.game.Listener;
 import org.schweisguth.xt.common.game.ListenerManager;
+import org.schweisguth.xt.common.game.ListenerOperations;
 import org.schweisguth.xt.common.gameimpl.GameImpl;
 import org.schweisguth.xt.common.gameimpl.joining.JoiningState;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
@@ -70,6 +72,22 @@ public class ListenerManagerTest extends TestCase {
             mListenable.removeListener(this);
         }
 
+    }
+
+    public void testRemoveErringListener() {
+        ListenerManager manager = new ListenerManager();
+        ErringListener listener = new ErringListener();
+        manager.addListener(listener);
+        Event event = new RefreshEvent(new GameImpl());
+        manager.send(event);
+
+        assertFalse(manager.iterator().hasNext());
+    }
+
+    private static class ErringListener implements ListenerOperations {
+        public void send(Event pEvent) throws RemoteException {
+            throw new RemoteException();
+        }
     }
 
 }
