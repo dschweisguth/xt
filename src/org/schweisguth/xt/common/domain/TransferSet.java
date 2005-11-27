@@ -61,12 +61,6 @@ public class TransferSet implements Serializable {
 
     }
 
-    public TransferSet(int[] pRackPositions, Position pBoardPosition,
-        Axis pAxis) {
-        this(pRackPositions, pBoardPosition.getX(), pBoardPosition.getY(),
-            pAxis);
-    }
-
     // Methods: queries
 
     public boolean contains(int pRackPosition) {
