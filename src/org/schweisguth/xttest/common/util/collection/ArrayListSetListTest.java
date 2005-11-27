@@ -10,6 +10,11 @@ import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xt.common.util.collection.DuplicateElementException;
 
 public class ArrayListSetListTest extends TestCase {
+    public void testCreateCollection() {
+        assertEquals(2,
+            new ArraySetList(Arrays.asList(new String[] { "x", "y" })).size());
+    }
+
     public void testCreateCollectionNull() {
         try {
             new ArraySetList((Collection) null);
@@ -24,6 +29,10 @@ public class ArrayListSetListTest extends TestCase {
             fail();
         } catch (DuplicateElementException e) {
         }
+    }
+
+    public void testCreateArray() {
+        assertEquals(2, new ArraySetList(new String[] { "x", "y" }).size());
     }
 
     public void testCreateArrayNull() {
