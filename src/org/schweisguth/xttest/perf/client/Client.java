@@ -8,10 +8,10 @@ import java.rmi.RemoteException;
 
 public class Client {
     public static void main(String[] pArgs) throws Exception {
-        Server server = (Server) Naming.lookup("//localhost/Server");
-        send(server, 20000, null, "null");
-        send(server, 20000, new EmptyObject(), "EmptyObject");
-        send(server, 20000, new int[1000], "int[1000]");
+        Server server = (Server) Naming.lookup("//schweisguth.org/Server");
+        send(server, 200, null, "null");
+        send(server, 200, new EmptyObject(), "EmptyObject");
+        send(server, 200, new int[1000], "int[1000]");
     }
 
     private static void send(Server pServer, int pRequestCount, Object pPayload, String pName) throws RemoteException {
