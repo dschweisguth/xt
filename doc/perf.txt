@@ -1,0 +1,21 @@
+null 				0 bytes
+EmptyObject			67 bytes
+int[1000]			4027
+new GameImpl()			3095
+new GameImpl(MovingState)	3753
+Probably 5 kb with a full board
+
+simurgh
+
+5000 null requests took 11672 ms
+5000 EmptyObject requests took 13602 ms
+5000 int[1000] requests took 36544 ms
+
+Grandma
+
+1000 null requests took 185361 ms
+1000 EmptyObject requests took 290294 ms
+
+200 null requests took 37786 ms
+200 EmptyObject requests took 44811 ms
+200 int[1000] requests took 142575 ms
