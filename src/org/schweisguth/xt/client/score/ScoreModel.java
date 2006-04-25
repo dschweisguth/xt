@@ -35,10 +35,12 @@ public class ScoreModel extends AbstractTableModel {
     // Methods: other
 
     public void setScoreSheet(ScoreSheet pScoreSheet) {
+        ScoreSheet oldScoreSheet = mScoreSheet;
         mScoreSheet = pScoreSheet;
-        // TODO send change event only if scoresheet changes
         // TODO send only row change event when appropriate
-        fireTableStructureChanged();
+        if (! pScoreSheet.equals(oldScoreSheet)) {
+            fireTableStructureChanged();
+        }
     }
 
 }
