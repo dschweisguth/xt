@@ -100,8 +100,16 @@ class BoardTableView extends JTable {
         getSelectionModel().addListSelectionListener(pBoardViewListener);
     }
 
-    // TODO: resolve why this override is needed
-    // TODO: if it is, consider clearing selections individually
+    /**
+     * Override the default so that the row selection is cleared first.
+     * If the column selection is cleared first, one of the listeners calls
+     * selectionIsEmpty(), it returns true, and something blows up. Rewriting
+     * selectionIsEmpty() to return true if either the row or column is empty
+     * solves that problem, but introduces a new problem where moving a tile
+     * from rack to board and then on top of another tile on the board doesn't
+     * replace it.
+     * TODO: Revisit the need for this method after rewriting the board and rack controllers
+     */
     public void clearSelection() {
         if (! selectionIsEmpty()) {
             getSelectionModel().clearSelection();
