@@ -4,9 +4,6 @@ import javax.swing.table.AbstractTableModel;
 import org.schweisguth.xt.common.domain.ScoreSheet;
 import org.schweisguth.xt.common.util.collection.ArraySetList;
 
-// TODO send change event only if scoresheet changes
-// TODO send only row change event when appropriate
-
 public class ScoreModel extends AbstractTableModel {
     // Fields
     private ScoreSheet mScoreSheet = new ScoreSheet(new ArraySetList());
@@ -39,6 +36,8 @@ public class ScoreModel extends AbstractTableModel {
 
     public void setScoreSheet(ScoreSheet pScoreSheet) {
         mScoreSheet = pScoreSheet;
+        // TODO send change event only if scoresheet changes
+        // TODO send only row change event when appropriate
         fireTableStructureChanged();
     }
 
