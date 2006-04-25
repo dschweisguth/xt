@@ -26,7 +26,8 @@ class OtherPlayerRackView extends CenteredLabel
     // Methods: implements Observer
 
     public final void update() {
-        setText(mModel.getRack().getTileCount() + " tiles");
+        int tileCount = mModel.getRack().getTileCount();
+        setText(tileCount + " tile" + (tileCount == 1 ? "" : "s"));
     }
 
 }
