@@ -37,8 +37,16 @@ public class ScoreModel extends AbstractTableModel {
     public void setScoreSheet(ScoreSheet pScoreSheet) {
         ScoreSheet oldScoreSheet = mScoreSheet;
         mScoreSheet = pScoreSheet;
-        // TODO send only row change event when appropriate
-        if (! pScoreSheet.equals(oldScoreSheet)) {
+        if (pScoreSheet.equals(oldScoreSheet)) {
+            return;
+        }
+        int oldRowCount = oldScoreSheet.getRowCount();
+        int newRowCount = pScoreSheet.getRowCount();
+        if (newRowCount == oldRowCount) {
+            fireTableRowsUpdated(oldRowCount - 1, oldRowCount - 1);
+        } else if (newRowCount == oldRowCount + 1) {
+            fireTableRowsInserted(newRowCount - 1, newRowCount - 1);
+        } else {
             fireTableStructureChanged();
         }
     }
