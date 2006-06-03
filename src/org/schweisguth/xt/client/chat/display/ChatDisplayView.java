@@ -8,6 +8,9 @@ import javax.swing.text.html.HTMLDocument;
 import org.schweisguth.xt.common.util.logging.Level;
 import org.schweisguth.xt.common.util.logging.Logger;
 
+/**
+ * TODO why doesn't this class work under Java 1.5?
+ */
 class ChatDisplayView extends JEditorPane {
     private static final String END_ID = "end";
 
