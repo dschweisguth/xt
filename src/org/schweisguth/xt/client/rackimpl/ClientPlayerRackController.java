@@ -8,7 +8,7 @@ import org.schweisguth.xt.client.server.Client;
 import org.schweisguth.xt.client.util.BaseTableColumnModelListener;
 import org.schweisguth.xt.common.command.RearrangeRackCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
-import org.schweisguth.xt.common.domain.TransferSet;
+import org.schweisguth.xt.common.domain.Transfer;
 import org.schweisguth.xt.common.util.contract.Assert;
 
 public class ClientPlayerRackController extends PlayerRackController {
@@ -68,7 +68,7 @@ public class ClientPlayerRackController extends PlayerRackController {
                         mBoardView.clearSelection();
                     } else {
                         TakeBackCommand command = new TakeBackCommand(
-                            new TransferSet(rackSelection, mBoardView.getSelection()));
+                            new Transfer(rackSelection, mBoardView.getSelection()));
                         if (mClient.canExecute(command)) {
                             mClient.execute(command);
                             clearRackSelection();

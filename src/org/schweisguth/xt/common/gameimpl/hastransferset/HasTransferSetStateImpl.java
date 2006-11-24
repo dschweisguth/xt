@@ -89,21 +89,19 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
         }
     }
 
-    protected void takeBack(TransferSet pTransferSet) {
-        for (Iterator transfers = pTransferSet.iterator();
-            transfers.hasNext();) {
-            Transfer transfer = (Transfer) transfers.next();
-            Position boardPosition = transfer.getBoardPosition();
-            getCurrentRack().add(getBoard().getTile(boardPosition),
-                transfer.getRackPosition());
-            getBoard().remove(boardPosition);
-            mTransferSet.takeBack(transfer);
-        }
+    protected void takeBack(Transfer pTransfer) {
+        Position boardPosition = pTransfer.getBoardPosition();
+        getCurrentRack().add(getBoard().getTile(boardPosition),
+            pTransfer.getRackPosition());
+        getBoard().remove(boardPosition);
+        mTransferSet.takeBack(pTransfer);
     }
 
     protected void retractMove() {
         TransferSet copy = new TransferSet(mTransferSet);
-        takeBack(copy);
+        for (Iterator transfers = copy.iterator(); transfers.hasNext();) {
+            takeBack((Transfer) transfers.next());
+        }
         incrementScore(0);
     }
 

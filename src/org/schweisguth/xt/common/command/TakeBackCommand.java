@@ -1,26 +1,26 @@
 package org.schweisguth.xt.common.command;
 
 import java.util.List;
-import org.schweisguth.xt.common.domain.TransferSet;
+import org.schweisguth.xt.common.domain.Transfer;
 import org.schweisguth.xt.common.util.contract.Assert;
 
 public class TakeBackCommand extends Command {
-    private static final long serialVersionUID = 0L;
+    private static final long serialVersionUID = -8507127067055982185L;
 
-    private final TransferSet mTransferSet;
+    private final Transfer mTransfer;
 
-    public TakeBackCommand(TransferSet pTransferSet) {
+    public TakeBackCommand(Transfer pTransfer) {
         super("");
-        Assert.assertNotNull(pTransferSet);
-        mTransferSet = pTransferSet;
+        Assert.assertNotNull(pTransfer);
+        mTransfer = pTransfer;
     }
 
     protected List getFields() {
-        return append(super.getFields(), mTransferSet);
+        return append(super.getFields(), mTransfer);
     }
 
-    public TransferSet getTransferSet() {
-        return mTransferSet;
+    public Transfer getTransfer() {
+        return mTransfer;
     }
 
 }

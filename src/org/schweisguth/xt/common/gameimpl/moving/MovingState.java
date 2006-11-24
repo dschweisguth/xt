@@ -17,7 +17,6 @@ import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Position;
 import org.schweisguth.xt.common.domain.Rack;
 import org.schweisguth.xt.common.domain.ScoreSheet;
-import org.schweisguth.xt.common.domain.Transfer;
 import org.schweisguth.xt.common.domain.TransferSet;
 import org.schweisguth.xt.common.game.Event;
 import org.schweisguth.xt.common.game.Game;
@@ -115,22 +114,12 @@ public class MovingState extends HasTransferSetStateImpl {
     }
 
     public boolean canExecute(String pPlayer, TakeBackCommand pCommand) {
-        if (! isCurrent(pPlayer)) {
-            return false;
-        }
-        for (Iterator transfers = pCommand.getTransferSet().iterator();
-            transfers.hasNext();) {
-            Transfer transfer = (Transfer) transfers.next();
-            Position boardPosition = transfer.getBoardPosition();
-            if (! (getBoard().hasUnapprovedTile(boardPosition))) {
-                return false;
-            }
-        }
-        return true;
+        return isCurrent(pPlayer) && getBoard().hasUnapprovedTile(
+            pCommand.getTransfer().getBoardPosition());
     }
 
     public Event execute(String pPlayer, TakeBackCommand pCommand) {
-        takeBack(pCommand.getTransferSet());
+        takeBack(pCommand.getTransfer());
         return new TookBackEvent(getContext().getGame(),
             new Request(pPlayer, pCommand));
     }

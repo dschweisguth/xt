@@ -2,7 +2,7 @@ package org.schweisguth.xttest.common.gameimpl.moving;
 
 import org.schweisguth.xt.common.command.JoinCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
-import org.schweisguth.xt.common.domain.TransferSet;
+import org.schweisguth.xt.common.domain.Transfer;
 import org.schweisguth.xt.common.game.Request;
 import org.schweisguth.xt.common.gameimpl.joining.JoinedEvent;
 import org.schweisguth.xt.common.gameimpl.moving.TookBackEvent;
@@ -12,7 +12,7 @@ import org.schweisguth.xttest.testutil.ValueObjectTester;
 public class TookBackEventTest extends BaseEventTest {
     // Constants
     private static final Request REQUEST = new Request("player1",
-        new TakeBackCommand(new TransferSet(0, 0, 0)));
+        new TakeBackCommand(new Transfer(0, 0, 0)));
     private static final TookBackEvent EVENT = new TookBackEvent(GAME, REQUEST);
 
     // Tests
@@ -23,7 +23,7 @@ public class TookBackEventTest extends BaseEventTest {
             new JoinedEvent(GAME, new Request("player1", new JoinCommand())));
         tester.addOther(new TookBackEvent(GAME2, REQUEST));
         tester.addOther(new TookBackEvent(GAME,
-            new Request("player2", new TakeBackCommand(new TransferSet(0, 0, 0)))));
+            new Request("player2", new TakeBackCommand(new Transfer(0, 0, 0)))));
         tester.doAssert(EVENT);
     }
 
