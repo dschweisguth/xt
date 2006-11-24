@@ -286,15 +286,18 @@ public class MovingStateTest extends BaseTest {
     }
 
     public void testTakeBackAfterRearrangeRack() {
-        final String[] racks = { "ZQNNNNN", EEEEEEE };
-        final Transfer transfer = new Transfer(1, 0, 0);
+        final String[] racks = { "QZNNNNN", EEEEEEE };
+        final Transfer transfer = new Transfer(0, 0, 0);
         ListenableGame game = new GameImpl(
             new MovingState(TWO_PLAYERS, racks, new TransferSet(transfer)));
         TestClient client1 = new TestClient(game, "player1");
-        final Command command = new TakeBackCommand(transfer);
+        client1.execute(new RearrangeRackCommand(1, 0)); // TODO Dave initialize directly
+        client1.clear();
+        final Command command = new TakeBackCommand(new Transfer(1, 0, 0));
         client1.execute(command);
 
-        Game expectedGame = new GameImpl(new MovingState(TWO_PLAYERS, racks));
+        Game expectedGame = new GameImpl(
+            new MovingState(TWO_PLAYERS, new String[] { "ZQNNNNN", EEEEEEE }));
         assertEquals(expectedGame, game);
 
         Event event =
@@ -327,9 +330,8 @@ public class MovingStateTest extends BaseTest {
 
     public void testTakeBackAll1() {
         final String[] racks = { "QNNNNNN", EEEEEEE };
-        final TransferSet transfers = new TransferSet(0, 0, 0);
-        ListenableGame game =
-            new GameImpl(new MovingState(TWO_PLAYERS, racks, transfers));
+        ListenableGame game = new GameImpl(
+            new MovingState(TWO_PLAYERS, racks, new TransferSet(0, 0, 0)));
         TestClient client1 = new TestClient(game, "player1");
         final Command command = new TakeBackAllCommand();
         client1.execute(command);
@@ -356,6 +358,27 @@ public class MovingStateTest extends BaseTest {
 
         Event event = new TookBackAllEvent(expectedGame,
             new Request("player1", command));
+        assertEquals(CollectionUtil.asList(event), client1.getEvents());
+
+    }
+
+    public void testTakeBackAllAfterRearrangeRack() {
+        final String[] racks = { "QZNNNNN", EEEEEEE };
+        final Transfer transfer = new Transfer(0, 0, 0);
+        ListenableGame game = new GameImpl(
+            new MovingState(TWO_PLAYERS, racks, new TransferSet(transfer)));
+        TestClient client1 = new TestClient(game, "player1");
+        client1.execute(new RearrangeRackCommand(1, 0)); // TODO Dave initialize directly
+        client1.clear();
+        final Command command = new TakeBackAllCommand();
+        client1.execute(command);
+
+        Game expectedGame = new GameImpl(
+            new MovingState(TWO_PLAYERS, new String[] { "ZQNNNNN", EEEEEEE }));
+        assertEquals(expectedGame, game);
+
+        Event event = new TookBackAllEvent(
+            expectedGame, new Request("player1", command));
         assertEquals(CollectionUtil.asList(event), client1.getEvents());
 
     }
