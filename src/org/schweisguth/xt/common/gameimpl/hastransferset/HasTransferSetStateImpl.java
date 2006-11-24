@@ -97,11 +97,15 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
         mTransferSet.takeBack(pTransfer);
     }
 
-    protected void retractMove() {
+    protected void takeBackAll() {
         TransferSet copy = new TransferSet(mTransferSet);
         for (Iterator transfers = copy.iterator(); transfers.hasNext();) {
             takeBack((Transfer) transfers.next());
         }
+    }
+
+    protected void retractMove() {
+        takeBackAll();
         incrementScore(0);
     }
 

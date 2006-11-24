@@ -12,6 +12,7 @@ import org.schweisguth.xt.common.command.PassCommand;
 import org.schweisguth.xt.common.command.RearrangeBoardCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
+import org.schweisguth.xt.common.command.TakeBackAllCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Position;
@@ -121,6 +122,16 @@ public class MovingState extends HasTransferSetStateImpl {
     public Event execute(String pPlayer, TakeBackCommand pCommand) {
         takeBack(pCommand.getTransfer());
         return new TookBackEvent(getContext().getGame(),
+            new Request(pPlayer, pCommand));
+    }
+
+    public boolean canExecute(String pPlayer, TakeBackAllCommand pCommand) {
+        return isCurrent(pPlayer) && ! getTransferSet().isEmpty();
+    }
+
+    public Event execute(String pPlayer, TakeBackAllCommand pCommand) {
+        takeBackAll();
+        return new TookBackAllEvent(getContext().getGame(),
             new Request(pPlayer, pCommand));
     }
 

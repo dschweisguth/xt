@@ -131,6 +131,11 @@ public class TransferSet implements Serializable {
         return mTransfers.size();
     }
 
+    // TODO Dave use elsewhere?
+    public boolean isEmpty() {
+        return mTransfers.isEmpty();
+    }
+
     // Methods: commands
 
     public final void add(Transfer pTransfer) {

@@ -10,6 +10,7 @@ import org.schweisguth.xt.common.command.RearrangeBoardCommand;
 import org.schweisguth.xt.common.command.RearrangeRackCommand;
 import org.schweisguth.xt.common.command.TakeBackCommand;
 import org.schweisguth.xt.common.command.TransferCommand;
+import org.schweisguth.xt.common.command.TakeBackAllCommand;
 import org.schweisguth.xt.common.domain.Board;
 import org.schweisguth.xt.common.domain.BoxLid;
 import org.schweisguth.xt.common.domain.Position;
@@ -31,6 +32,7 @@ import org.schweisguth.xt.common.gameimpl.moving.MovingState;
 import org.schweisguth.xt.common.gameimpl.moving.PassedEvent;
 import org.schweisguth.xt.common.gameimpl.moving.RearrangedBoardEvent;
 import org.schweisguth.xt.common.gameimpl.moving.TookBackEvent;
+import org.schweisguth.xt.common.gameimpl.moving.TookBackAllEvent;
 import org.schweisguth.xt.common.util.collection.CollectionUtil;
 import org.schweisguth.xt.common.util.collection.HashStickySet;
 import org.schweisguth.xttest.common.gameimpl.base.CanExecuteTester;
@@ -321,6 +323,24 @@ public class MovingStateTest extends BaseTest {
             new TransferSet(rackPosition, 0, 0));
         assertFalse(state.canExecute(
             "player1", new TakeBackCommand(new Transfer(rackPosition, 1, 0))));
+    }
+
+    public void testTakeBackAll() {
+        final String[] racks = { "QNNNNNN", EEEEEEE };
+        final TransferSet transfers = new TransferSet(0, 0, 0);
+        ListenableGame game =
+            new GameImpl(new MovingState(TWO_PLAYERS, racks, transfers));
+        TestClient client1 = new TestClient(game, "player1");
+        final Command command = new TakeBackAllCommand();
+        client1.execute(command);
+
+        Game expectedGame = new GameImpl(new MovingState(TWO_PLAYERS, racks));
+        assertEquals(expectedGame, game);
+
+        Event event = new TookBackAllEvent(expectedGame,
+            new Request("player1", command));
+        assertEquals(CollectionUtil.asList(event), client1.getEvents());
+
     }
 
     public void testFinish() {

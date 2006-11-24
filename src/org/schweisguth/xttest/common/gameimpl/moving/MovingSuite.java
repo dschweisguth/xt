@@ -13,6 +13,7 @@ public class MovingSuite {
             suite.addTestSuite(FinishedEventTest.class);
             suite.addTestSuite(PassedEventTest.class);
             suite.addTestSuite(RearrangedBoardEventTest.class);
+            suite.addTestSuite(TookBackAllEventTest.class);
             suite.addTestSuite(TookBackEventTest.class);
             suite.addTestSuite(TransferredEventTest.class);
             return suite;
