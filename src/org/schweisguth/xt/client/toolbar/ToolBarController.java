@@ -14,6 +14,7 @@ import org.schweisguth.xt.common.command.PassCommand;
 import org.schweisguth.xt.common.command.StartCommand;
 import org.schweisguth.xt.common.command.StartNewGameCommand;
 import org.schweisguth.xt.common.command.SustainChallengeCommand;
+import org.schweisguth.xt.common.command.TakeBackAllCommand;
 import org.schweisguth.xt.common.util.contract.Assert;
 
 public class ToolBarController {
@@ -29,6 +30,7 @@ public class ToolBarController {
         mView = new ToolBarView(
             new CommandAction(pClient, new JoinCommand()),
             new CommandAction(pClient, new StartCommand()),
+            new CommandAction(pClient, new TakeBackAllCommand()),
             new CommandAction(pClient, new FinishCommand()),
             new CommandAction(pClient, new ApproveCommand()),
             new CommandAction(pClient, new ChallengeCommand()),

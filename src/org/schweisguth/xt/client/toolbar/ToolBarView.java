@@ -22,10 +22,11 @@ public class ToolBarView extends JPanel implements CardView {
     // Constructors
 
     public ToolBarView(Action pJoinAction, Action pStartAction,
-        Action pFinishAction, Action pApproveAction, Action pChallengeAction,
-        Action pOverruleChallengeAction, Action pSustainChallengeAction,
-        Action pExchangeAction, Action pPassAction, Action pEndGameAction,
-        Action pStartNewGameAction) {
+        Action pTakeBackAllAction, Action pFinishAction, Action pApproveAction,
+        Action pChallengeAction, Action pOverruleChallengeAction,
+        Action pSustainChallengeAction, Action pExchangeAction,
+        Action pPassAction, Action pEndGameAction, Action pStartNewGameAction)
+    {
         setLayout(new CardLayout());
         Dimension size = new JButton("Sample").getPreferredSize();
         setMinimumSize(size);
@@ -40,6 +41,7 @@ public class ToolBarView extends JPanel implements CardView {
         add(joiningToolBar, JOINING);
 
         JToolBar playingToolBar = new FixedToolBar();
+        playingToolBar.add(pTakeBackAllAction);
         playingToolBar.add(pFinishAction);
         playingToolBar.add(pApproveAction);
         playingToolBar.add(pChallengeAction);
