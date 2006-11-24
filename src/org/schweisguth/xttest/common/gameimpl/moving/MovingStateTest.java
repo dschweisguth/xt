@@ -341,7 +341,16 @@ public class MovingStateTest extends BaseTest {
 
     }
 
-    // TODO Dave copy the rest of the TakeBack tests
+    public void testTakeBackAllEarly() {
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
+        assertFalse(state.canExecute("player1", new TakeBackAllCommand()));
+    }
+
+    public void testTakeBackAllWrongPlayer() {
+        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
+            new TransferSet(0, 0, 0));
+        assertFalse(state.canExecute("player2", new TakeBackAllCommand()));
+    }
 
     public void testFinish() {
         ListenableGame game = new GameImpl(
