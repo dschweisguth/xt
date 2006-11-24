@@ -264,7 +264,7 @@ public class MovingStateTest extends BaseTest {
 
     public void testTakeBackWithEarlierEmptySpaceInRack() {
         final String[] racks = { "QZNNNNN", EEEEEEE };
-        final Transfer firstTransfer = new Transfer(0, new Position(0, 0));
+        final Transfer firstTransfer = new Transfer(0, 0, 0);
         final Transfer secondTransfer = new Transfer(1, 1, 0);
         TransferSet transferSet = new TransferSet();
         transferSet.add(firstTransfer);
@@ -275,8 +275,8 @@ public class MovingStateTest extends BaseTest {
         final Command command = new TakeBackCommand(secondTransfer);
         client1.execute(command);
 
-        Game expectedGame = new GameImpl(
-            new MovingState(TWO_PLAYERS, racks, new TransferSet(firstTransfer)));
+        Game expectedGame = new GameImpl(new MovingState(
+            TWO_PLAYERS, racks, new TransferSet(firstTransfer)));
         assertEquals(expectedGame, game);
 
         Event event =
