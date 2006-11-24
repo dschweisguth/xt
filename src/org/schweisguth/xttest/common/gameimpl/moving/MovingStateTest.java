@@ -244,9 +244,9 @@ public class MovingStateTest extends BaseTest {
 
     public void testTakeBack() {
         final String[] racks = { "QNNNNNN", EEEEEEE };
-        final Transfer transfer = new Transfer(0, 0, 0);
-        ListenableGame game = new GameImpl(new MovingState(TWO_PLAYERS, racks,
-            new TransferSet(transfer)));
+        final TransferSet transfer = new TransferSet(0, 0, 0);
+        ListenableGame game =
+            new GameImpl(new MovingState(TWO_PLAYERS, racks, transfer));
         TestClient client1 = new TestClient(game, "player1");
         final Command command = new TakeBackCommand(transfer);
         client1.execute(command);
@@ -270,11 +270,12 @@ public class MovingStateTest extends BaseTest {
         ListenableGame game =
             new GameImpl(new MovingState(TWO_PLAYERS, racks, transferSet));
         TestClient client1 = new TestClient(game, "player1");
-        final Command command = new TakeBackCommand(secondTransfer);
+        final Command command =
+            new TakeBackCommand(new TransferSet(secondTransfer));
         client1.execute(command);
 
-        Game expectedGame = new GameImpl(
-            new MovingState(TWO_PLAYERS, racks, new TransferSet(firstTransfer)));
+        Game expectedGame = new GameImpl(new MovingState(TWO_PLAYERS, racks,
+            new TransferSet(firstTransfer)));
         assertEquals(expectedGame, game);
 
         Event event =
@@ -285,11 +286,11 @@ public class MovingStateTest extends BaseTest {
 
     public void testTakeBackAfterRearrangeRack() {
         final String[] racks = { "ZQNNNNN", EEEEEEE };
-        final Transfer transfer = new Transfer(1, 0, 0);
-        ListenableGame game = new GameImpl(
-            new MovingState(TWO_PLAYERS, racks, new TransferSet(transfer)));
+        final TransferSet transferSet = new TransferSet(1, 0, 0);
+        ListenableGame game =
+            new GameImpl(new MovingState(TWO_PLAYERS, racks, transferSet));
         TestClient client1 = new TestClient(game, "player1");
-        final Command command = new TakeBackCommand(transfer);
+        final Command command = new TakeBackCommand(transferSet);
         client1.execute(command);
 
         Game expectedGame = new GameImpl(new MovingState(TWO_PLAYERS, racks));
@@ -304,23 +305,23 @@ public class MovingStateTest extends BaseTest {
     public void testTakeBackEarly() {
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE);
         assertFalse(state.canExecute(
-            "player1", new TakeBackCommand(new Transfer(0, 0, 0))));
+            "player1", new TakeBackCommand(new TransferSet(0, 0, 0))));
     }
 
     public void testTakeBackWrongPlayer() {
-        final Transfer transfer = new Transfer(0, 0, 0);
-        MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
-            new TransferSet(transfer));
+        final TransferSet transferSet = new TransferSet(0, 0, 0);
+        MovingState state =
+            new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE, transferSet);
         assertFalse(
-            state.canExecute("player2", new TakeBackCommand(transfer)));
+            state.canExecute("player2", new TakeBackCommand(transferSet)));
     }
 
     public void testTakeBackWrongPosition() {
         final int rackPosition = 0;
         MovingState state = new MovingState(TWO_PLAYERS, AAAAAAA_EEEEEEE,
             new TransferSet(rackPosition, 0, 0));
-        assertFalse(state.canExecute(
-            "player1", new TakeBackCommand(new Transfer(rackPosition, 1, 0))));
+        assertFalse(state.canExecute("player1",
+            new TakeBackCommand(new TransferSet(rackPosition, 1, 0))));
     }
 
     public void testFinish() {

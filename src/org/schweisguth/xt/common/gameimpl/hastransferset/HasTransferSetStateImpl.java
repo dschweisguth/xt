@@ -89,12 +89,21 @@ public abstract class HasTransferSetStateImpl extends HasCurrentPlayerStateImpl
         }
     }
 
+    // TODO Dave inline?
     protected void takeBack(Transfer pTransfer) {
         Position boardPosition = pTransfer.getBoardPosition();
         getCurrentRack().add(getBoard().getTile(boardPosition),
             pTransfer.getRackPosition());
         getBoard().remove(boardPosition);
         mTransferSet.takeBack(pTransfer);
+    }
+
+    protected void takeBack(TransferSet pTransferSet) {
+        for (Iterator transfers = pTransferSet.iterator();
+            transfers.hasNext();) {
+            Transfer transfer = (Transfer) transfers.next();
+            takeBack(transfer);
+        }
     }
 
     protected void retractMove() {
