@@ -2,5 +2,5 @@ how to timeout an RMI call?
 https://lists.xcf.berkeley.edu/lists/advanced-java/2000-September/012404.html
 Disallow exchanges with less than 7 tiles in the bag
 TODO integrate with CrossTease.command in etc.
-TODO use system property instead of port-replacing mechanism for me too
+TODO remove org.schweisguth.xt.common.server.NATSocketFactory.natServer
 TODO get rid of .svn in jars
