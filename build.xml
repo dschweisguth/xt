@@ -94,14 +94,13 @@
 	</jar>
 
 	<!-- Distributions -->
-<!--
-	<copy todir="${build}">
-	    <fileset dir="." includes="dist/**"/>
-	</copy>
--->
+
+	<!-- Use cp executable instead of Ant task to preserve executable bits
+	     -->
 	<exec executable="cp">
 	    <arg line="-pr dist ${build}"/>
 	</exec>
+
 	<copy file="${jar}/xt-client.jar"
 	    todir="${dist}/client/generic/CrossTease"/>
 	<copy file="${jar}/xt-client.jar"
