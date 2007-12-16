@@ -1,0 +1,3 @@
+#!/bin/sh
+# Don't use the GNU java which is first in PATH by default
+exec /usr/java/jdk1.5.0_07/bin/java -jar xt-server.jar > log 2>&1 &
