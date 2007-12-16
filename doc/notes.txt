@@ -1,8 +1,6 @@
 how to timeout an RMI call?
 https://lists.xcf.berkeley.edu/lists/advanced-java/2000-September/012404.html
 Disallow exchanges with less than 7 tiles in the bag
-TODO get Grandma's new crosstease.properties, too.
 TODO integrate with CrossTease.command in etc.
-TODO is Grandma using the right quit handler?
 TODO use system property instead of port-replacing mechanism for me too
 TODO deploy current software
