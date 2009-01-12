@@ -97,16 +97,26 @@
 
 	<!-- Use cp executable instead of Ant task to preserve executable bits
 	     -->
+	<mkdir dir="${build}/dist/client"/>
 	<exec executable="cp">
-	    <arg line="-pr dist ${build}"/>
+	    <arg line="-pr dist/client/generic ${build}/dist/client/generic"/>
+	</exec>
+	<exec executable="cp">
+	    <arg line="-pr dist/client/MacOS-10.4-dave ${build}/dist/client/MacOS-10.4-dave"/>
+	</exec>
+	<exec executable="cp">
+	    <arg line="-pr dist/client/MacOS-10.5-grandma ${build}/dist/client/MacOS-10.5-grandma"/>
+	</exec>
+	<exec executable="cp">
+	    <arg line="-pr dist/CrossTease-server ${build}/dist/CrossTease-server"/>
 	</exec>
 
 	<copy file="${jar}/xt-client.jar"
 	    todir="${dist}/client/generic/CrossTease"/>
 	<copy file="${jar}/xt-client.jar"
-	    todir="${dist}/client/MacOS-10.1/CrossTease"/>
+	    todir="${dist}/client/MacOS-10.4-dave/CrossTease"/>
 	<copy file="${jar}/xt-client.jar"
-	    todir="${dist}/client/MacOS-10.4/CrossTease"/>
+	    todir="${dist}/client/MacOS-10.5-grandma/CrossTease"/>
 	<copy file="${jar}/xt-server.jar"
 	    todir="${dist}/CrossTease-server"/>
 	<copy file="${jar}/xt-perf-client.jar"
@@ -120,10 +130,11 @@
 	    destfile="${zip}/CrossTease-server.zip"/>
 	<zip basedir="${dist}/client/generic" includes="CrossTease/**"
 	    destfile="${zip}/CrossTease-generic.zip"/>
-	<zip basedir="${dist}/client/MacOS-10.1" includes="CrossTease/**"
-	    destfile="${zip}/CrossTease-MacOS-10.1.zip"/>
-	<zip basedir="${dist}/client/MacOS-10.4" includes="CrossTease/**"
-	    destfile="${zip}/CrossTease-MacOS-10.4.zip"/>
+	<zip basedir="${dist}/client/MacOS-10.4-dave" includes="CrossTease/**"
+	    destfile="${zip}/CrossTease-MacOS-10.4-dave.zip"/>
+	<zip basedir="${dist}/client/MacOS-10.5-grandma"
+	    includes="CrossTease/**"
+	    destfile="${zip}/CrossTease-MacOS-10.5-grandma.zip"/>
 	<zip basedir="../.." includes="xt/project/**"
 	    destfile="${zip}/CrossTease-src.zip"/>
 
