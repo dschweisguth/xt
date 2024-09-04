@@ -1,0 +1,13 @@
+
+# /
+/xt.iws
+
+# /run/client/
+/run/client/crosstease.prefs.properties
+
+# /run/server/
+/run/server/game.ser
+
+# /run/suite/
+/run/suite/game.ser
+/run/suite/crosstease.prefs.properties
